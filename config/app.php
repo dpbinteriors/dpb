@@ -83,8 +83,8 @@ return [
     |
     */
 
-    'locale' => 'tr',
-    'default_locale' => 'tr',
+    'locale' => 'en',
+    'default_locale' => 'en',
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -96,7 +96,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'tr',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------

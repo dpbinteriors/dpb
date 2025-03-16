@@ -1,5 +1,4 @@
 import "./bootstrap";
-import "alpinejs";
 
 import { Loader } from "@googlemaps/js-api-loader";
 

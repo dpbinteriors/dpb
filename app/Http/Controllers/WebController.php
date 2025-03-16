@@ -20,6 +20,8 @@ use App\Models\LegalPage;
 use App\Models\Product;
 use App\Models\Slide;
 use App\Models\Supplier;
+use App\Models\Works;
+use App\Models\WorksCategories;
 use Artesaos\SEOTools\SEOTools;
 use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
 
@@ -45,7 +47,7 @@ class WebController extends BaseController
 
     public function home(): View
     {
-        SEOTools::webPage(__('Taşın Otomotiv - Ana Sayfa'), __('Our company, which started its commercial activities in 1985, aimed to develop and expand in other sectors by adopting a successful working principle in the future. With its years of experience in the spare parts sector, it works with the aim of providing the best service to its customers in a way that dominates the needs of the market.'));
+        SEOTools::webPage(__('Dpb Interior - Ana Sayfa'), __('Our company, which started its commercial activities in 1985, aimed to develop and expand in other sectors by adopting a successful working principle in the future. With its years of experience in the spare parts sector, it works with the aim of providing the best service to its customers in a way that dominates the needs of the market.'));
 
         $slides = Slide::published()->orderBy('position', 'asc')->get();
         $campaigns = Campaign::published()->orderBy('position', 'asc')->get();
@@ -55,31 +57,31 @@ class WebController extends BaseController
 
     public function residential(): View
     {
-        SEOTools::webPage(__('Taşın Otomotiv - Ana Sayfa'), __('Our company, which started its commercial activities in 1985, aimed to develop and expand in other sectors by adopting a successful working principle in the future. With its years of experience in the spare parts sector, it works with the aim of providing the best service to its customers in a way that dominates the needs of the market.'));
+        SEOTools::webPage(__('Dpb Interior - Ana Sayfa'), __('Our company, which started its commercial activities in 1985, aimed to develop and expand in other sectors by adopting a successful working principle in the future. With its years of experience in the spare parts sector, it works with the aim of providing the best service to its customers in a way that dominates the needs of the market.'));
 
-        $slides = Slide::published()->orderBy('position', 'asc')->get();
-        
+        $works = Works::published()->orderBy('order', 'asc')->get();
 
-        return view('residential', compact('slides'));
+
+        return view('residential', compact('works'));
     }
 
     public function aboutUs(): View
     {
-        SEOTools::webPage(__(key: 'Taşın Otomotiv - Hakkımızda'), __(''));
+        SEOTools::webPage(__(key: 'Dpb Interior - Hakkımızda'), __(''));
 
         return view('about_us');
     }
 
     public function humanResources(): View
     {
-        SEOTools::webPage(__(key: 'Taşın Otomotiv - İnsan Kaynakları'), __(''));
+        SEOTools::webPage(__(key: 'Dpb Interior - İnsan Kaynakları'), __(''));
 
         return view('human_resources');
     }
 
     public function environmentPolicy(): View
     {
-        SEOTools::webPage(__('Taşın Otomotiv - Çevre Politikası'));
+        SEOTools::webPage(__('Dpb Interior - Çevre Politikası'));
         return view('environment_policy');
     }
 
@@ -87,16 +89,16 @@ class WebController extends BaseController
     {
         $addresses = Address::all();
 
-        SEOTools::webPage(__('Taşın Otomotiv - İletişim'), __(key: ''));
+        SEOTools::webPage(__('Dpb Interior - İletişim'), __(key: ''));
 
         return view('contact', compact('addresses'));
     }
 
     public function worksIndex(): View
     {
-        SEOTools::webPage(__('Taşın Otomotiv - Kampanya'), __('Kampanyalarımıza göz atın ve fırsatları kaçırmayın!'));
+        SEOTools::webPage(__('Dpb Interior - Our Works'), __('Kampanyalarımıza göz atın ve fırsatları kaçırmayın!'));
 
-        $works = Campaign::where('is_published', true)
+        $works = Works::where('is_published', true)
             ->where('publish_at', '<=', now())
             ->where(function ($query) {
                 $query->where('publish_until', '>=', now())->orWhereNull('publish_until');
@@ -104,7 +106,9 @@ class WebController extends BaseController
             ->orderBy('publish_at', 'desc')
             ->get();
 
-        return view('works/index', compact('works'));
+        $worksCategories = WorksCategories::all();
+
+        return view('works/index', compact('works','worksCategories'));
     }
 
     public function worksDetail($slug): View
@@ -202,7 +206,7 @@ class WebController extends BaseController
             'country_code' => 'required',
             'phone_number' => 'required',
             'message' => 'required',
-            
+
         ]);
 
         $hrForm = CommunicationForm::where('key', 'hr_form')->first();

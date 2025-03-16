@@ -68,7 +68,7 @@
 //                             })
 //                             ->label(__('panel.application_category'))
 //                             ->createOptionAction(fn($action) => $action->label('Your label here'))
-//                             ->getOptionLabelFromRecordUsing(fn($record, $livewire) => $record->getTranslation('title', $livewire->activeLocale))
+//                             ->getOptionLabelFromRecordUsing(fn($record, $Livewire) => $record->getTranslation('title', $Livewire->activeLocale))
 //                             ->columnSpan(12),
 //                         // -----
 
@@ -120,7 +120,7 @@
 //                 SelectFilter::make('category')
 //                     ->label(__('panel.application_category'))
 //                     ->relationship(name: 'category', titleAttribute: 'title')
-//                     ->getOptionLabelFromRecordUsing(fn($record, $livewire) => $record->title)
+//                     ->getOptionLabelFromRecordUsing(fn($record, $Livewire) => $record->title)
 //             ])
 //             ->actions([
 //                 Tables\Actions\EditAction::make(),

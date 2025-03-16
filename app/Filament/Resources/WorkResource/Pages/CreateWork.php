@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Filament\Resources\ProjectCategoryResource\Pages;
+namespace App\Filament\Resources\WorkResource\Pages;
 
-use App\Filament\Resources\ProjectCategoryResource;
+use App\Filament\Resources\ProjectResource;
+use App\Filament\Resources\WorkResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Resources\Pages\CreateRecord\Concerns\Translatable;
 
-class CreateCategory extends CreateRecord
+class CreateWork extends CreateRecord
 {
     use Translatable;
-    protected static string $resource = ProjectCategoryResource::class;
+    protected static string $resource = WorkResource::class;
 
     protected function getHeaderActions(): array
     {

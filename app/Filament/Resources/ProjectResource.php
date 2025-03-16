@@ -190,8 +190,8 @@
 //     {
 //         return [
 //             'index' => Pages\ListProjects::route('/'),
-//             'create' => Pages\CreateProject::route('/create'),
-//             'edit' => Pages\EditProject::route('/{record}/edit'),
+//             'create' => Pages\CreateWork::route('/create'),
+//             'edit' => Pages\EditWork::route('/{record}/edit'),
 //         ];
 //     }
 

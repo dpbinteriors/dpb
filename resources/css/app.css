@@ -978,8 +978,6 @@ a{
     font-weight: 400;
     margin-bottom: 20px;
     text-align: start;
-    position: relative;
-
     width: 100%;
     display: flex;
     gap: 20px;
@@ -1000,9 +998,7 @@ a{
     flex:1;
 }
 
-.our-works-area {
-    position: relative;
-}
+
 
 .our-works-area .works-title {
     position: relative;
@@ -1021,17 +1017,29 @@ a{
     content: "";
     position: absolute;
     left: 0;
-    top: 22%;
+    top: 33.7%;
     width: 84%;
     height: 13px;
     background-color: #025949; /* Turuncu Çizgi */
+}
+
+a{
+    cursor:pointer;
+}
+
+.works-card{
+    transition: all 0.3s ease-in-out;
+}
+
+.works-card:hover{
+    transform: scale(1.05);
 }
 
 .our-works-area::after {
     content: "";
     position: absolute;
     left: 0;
-    top: 23.3%;
+    top: 34.9%;
     width: 50%;
     height: 13px;
     background-color: #FB8925; /* Yeşil Çizgi */

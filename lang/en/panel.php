@@ -108,4 +108,8 @@ return array(
     'add_application_type'=> '+ New Application Type',
     'product_code'=> 'Product Code',
     'website'=> 'Website',
+    'work_categories'=> 'Works Categories',
+    'works'=> 'Works',
+    'style'=> 'Style',
+    'tag'=> 'Tag',
 );

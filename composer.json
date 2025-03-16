@@ -25,6 +25,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/scout": "^10.8",
         "laravel/tinker": "^2.8",
+        "livewire/livewire": "^3.6",
         "mvenghaus/filament-plugin-translatable-inline": "^3.0",
         "psr/simple-cache": "^2.0",
         "pxlrbt/filament-activity-log": "^1.0",
