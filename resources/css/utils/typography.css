@@ -1,0 +1,198 @@
+/* Add JUST Sans ExBold.otf and JUST Sans.otf font as a custom font */
+@font-face {
+    font-family: 'JUST Sans';
+    src: url('/resources/fonts/JUST Sans ExBold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'JUST Sans';
+    src: url('/resources/fonts/JUST Sans SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'JUST Sans';
+    src: url('/resources/fonts/JUST Sans Regular.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url('/resources/fonts/DMSans-Regular.ttf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url('/resources/fonts/DMSans-SemiBold.ttf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url('/resources/fonts/DMSans-ExtraBold.ttf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'TitilliumWeb';
+    src: url('/resources/fonts/TitilliumWeb-Regular.ttf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TitilliumWeb';
+    src: url('/resources/fonts/TitilliumWeb-SemiBold.ttf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TitilliumWeb';
+    src: url('/resources/fonts/TitilliumWeb-Bold.ttf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+body {
+    font-family: 'TitilliumWeb', sans-serif;
+    @apply antialiased;
+}
+
+
+
+.h1 {
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%;
+}
+
+.h2 {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+}
+
+.h3 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+}
+
+.h4 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+}
+
+.h5 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+}
+
+.h6 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+}
+
+.h7 {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+p,
+a,
+button,
+li,
+input,
+select {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 140%;
+}
+
+.small-text {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+
+/*For mobile resulation */
+@media (max-width: 767px) {
+    .h1 {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%;
+    }
+
+    .h2 {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%
+    }
+
+    .h3 {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%;
+    }
+
+    .h4 {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 130%;
+    }
+
+    p,
+    span,
+    button,
+    li {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+    }
+
+    .small-text {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 140%;
+    }
+}

@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import 'mixins/mixins';
+@import "utils/utils";
+
+//Layout
+@import 'layout/layout';
+//Pages
+@import "pages/pages";
+//Components
+@import "components/components";
+
+// Alpine js modal initially should be hidden
+[x-cloak] {
+  display: none
+}
+
+:root {
+  --main-bg-color: blue;
+}

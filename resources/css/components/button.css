@@ -1,0 +1,44 @@
+.button{
+    display: flex;
+    padding: 10px 24px;
+    align-items: center;
+    gap: 10px;
+}
+
+.text-button{
+    color: #181818;
+    font-family: "Space Grotesk", serif ;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 26px */
+}
+
+
+/*.button:hover {*/
+/*    transition: .5s;*/
+/*}*/
+
+.button-primary {
+    color: var(--color-blue-1);
+    background: var(--color-white-1);
+    border-radius: 100px;
+}
+
+.button-primary:hover {
+    background: var(--color-blue-3);
+    border-radius: 100px;
+}
+
+.button-secondary {
+    color: var(--color-white-1);
+    background: var(--color-blue-2);
+    border-radius: 100px;
+}
+
+.button-secondary:hover {
+    background: var(--color-blue-1);
+    border-radius: 100px;
+}
+
+

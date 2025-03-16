@@ -1,0 +1,31 @@
+header{
+    /*make animation ease in and out */
+
+
+    transition: 1s;
+}
+
+header .secondary{
+    @apply border-t-[4px] border-solid border-yellow-500;
+}
+
+.nav-link{
+    color: #181818;
+    font-family: "Space Grotesk", serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 26px */
+}
+
+.nav-link:before {
+    content: url("/resources/images/vector_4.svg");
+    line-height: normal;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    bottom: -5px;
+    height: 100%;
+}
+
+

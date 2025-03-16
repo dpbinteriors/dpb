@@ -1,0 +1,13 @@
+.slider{
+
+}
+
+.swiper-pagination-bullet{
+    cursor: pointer;
+}
+.home-slider .swiper-pagination-bullet-active{
+    width: 24px !important;
+    background: white !important;
+    opacity: 100%;
+    transition: .5s ease-in-out;
+}

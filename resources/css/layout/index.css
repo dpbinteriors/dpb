@@ -1,0 +1,29 @@
+@import "footer.css";
+@import "header.css";
+
+.container {
+    max-width: 1920px !important;
+    margin: auto;
+}
+
+.container-1 {
+    max-width: 1366px !important;
+    margin: auto;
+}
+
+.container-2 {
+    width: 100%;
+    max-width: 1258px;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+/* Media queries */
+@media (max-width: 1024px) {
+    .container-2 {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}

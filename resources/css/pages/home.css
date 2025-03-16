@@ -1,0 +1,12 @@
+.slider-text p,b{
+    font-family: 'Space Grotesk', sans-serif;
+
+}
+
+.slider-text strong{
+    color: white;
+}
+
+.parallax-bg{
+    background-image: url("/resources/images/home_parallax.jpg");
+}
