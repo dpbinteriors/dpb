@@ -92,7 +92,44 @@
 @livewireScripts
 
 {{-- Bootstrap JS --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+    $(document).ready(function(){
+        var owl = $(".owl-carousel");
+
+        owl.owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            dots: false,
+            items: 1
+        });
+
+        $(".next-slide").click(function() {
+            owl.trigger("next.owl.carousel");
+            updateIndicators(1);
+        });
+
+        $(".prev-slide").click(function() {
+            owl.trigger("prev.owl.carousel");
+            updateIndicators(-1);
+        });
+
+        function updateIndicators(direction) {
+            let indicators = $(".indicator");
+            let activeIndex = indicators.index($(".indicator.active"));
+            let newIndex = (activeIndex + direction) % indicators.length;
+
+            if (newIndex < 0) newIndex = indicators.length - 1;
+
+            indicators.removeClass("active");
+            indicators.eq(newIndex).addClass("active");
+        }
+    });
+
+</script>
 <!-- Layout'unuzun en altında -->
 
 

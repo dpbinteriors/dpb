@@ -72,6 +72,45 @@ class WebController extends BaseController
         return view('about_us');
     }
 
+    public function blogIndex(): View
+    {
+        $articles = Article::published()
+            ->orderBy('position', 'asc')
+            ->get();
+        return view('blog.index', ['articles' => $articles]);
+    }
+
+    public function blogDetail($slug): View
+    {
+
+        $currentBlog = Article::where('slug->' . app()->getLocale(), $slug)
+            ->published()
+            ->firstOrFail();
+
+        $articles = Article::published()
+            ->where('is_published', true)
+            ->orderBy('position', 'asc')
+            ->limit(8)
+            ->get();
+
+        $otherArticles = Article::published()
+            ->where('is_published', true)
+            ->where('id', '!=', $currentBlog->id) // Mevcut blogu hariç tut
+            ->orderBy('position', 'asc')
+            ->limit(8)
+            ->get();
+        return view('blog.details', [
+            'currentBlog' => $currentBlog,
+            'articles' => $articles,
+            'otherArticles' => $otherArticles,
+        ]);
+    }
+
+    public function blogDetails(): View
+    {
+        return view('blog.details');
+    }
+
     public function humanResources(): View
     {
         SEOTools::webPage(__(key: 'Dpb Interior - İnsan Kaynakları'), __(''));

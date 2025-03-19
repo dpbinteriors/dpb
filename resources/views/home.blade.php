@@ -188,7 +188,7 @@
             </div>
         </a>
     </div>
-    <div class="logo"><img src="logo.svg" alt=""></div>
+    <div class="logo"><img src="{{Vite::asset('resources/images/logo.svg')}}" alt=""></div>
     <div class="section">
         <a href="#">
             <img src="{{Vite::asset('resources/images/commercial.jpg')}}" alt="Commercial">
@@ -199,9 +199,9 @@
         </a>
     </div>
 </div>
-    
+
 @endsection
 
 @section('scripts')
-  
+
 @endsection

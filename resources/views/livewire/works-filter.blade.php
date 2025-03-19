@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <span class="style">{{ $work->style }}</span>
-                                        <span class="type">Interior</span>
+                                        <span class="type">{{$work->tag}}</span>
                                     </div>
                                 </div>
                             </a>

@@ -28,6 +28,10 @@ Route::localized(function () {
     Route::get(Lang::uri('works'), [WebController::class, 'worksIndex'])->name('works-index');
     Route::get(Lang::uri('works/{slug}'), [WebController::class, 'worksDetail'])->name('works-detail');
 
+    Route::get(Lang::get('/blog'), [WebController::class, 'blogIndex'])->name('blog');
+
+    Route::get('/blog/{slug?}', [WebController::class, 'blogDetail'])->name('blog-detail');
+
     Route::get(Lang::uri('legal-pages/{slug}'), [WebController::class, 'legalPage'])->name('legal-page');
 
     Route::get(Lang::uri('documents/{category}'), [WebController::class, 'category'])->name('document-category');
