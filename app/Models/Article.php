@@ -22,7 +22,7 @@ class Article extends Model
         'gallery' => 'array',
     ];
 
-    public $translatable = ['title', 'caption', 'description', 'slug'];
+    public $translatable = ['title', 'caption', 'description', 'slug','tag'];
 
 
 }

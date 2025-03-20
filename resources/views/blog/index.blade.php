@@ -74,30 +74,10 @@
             pointer-events: none; /* Tıklanamaz hale getir */
         }
 
-        .owl-carousel .owl-stage-outer:before {
-            content: "";
-            background: #fff;
-            position: absolute;
-            width: 40%;
-            height: 700px;
-            left: -100%;
-            margin-left: -20px;
-            top: 0;
-            z-index: 10;
-        }
 
-        .owl-carousel .owl-stage-outer:after {
-            content: "";
-            background: #fff;
-            position: absolute;
-            width: 100%;
-            height: 700px;
-            right: -100%;
-            margin-left: -20px;
-            top: 0;
-            z-index: 10;
-        }
-
+    .card{
+        box-shadow: unset !important;
+    }
 
         .highlight-box {
             position: absolute;
@@ -114,7 +94,7 @@
         }
 
         .highlight-box p {
-
+            max-width: 73%;
             color: #025949;
             text-align: end;
             margin-top: 10px;
@@ -201,16 +181,44 @@
 
         /* Göstergeler */
         .indicator {
-            width: 70px;
+            width: 75px;
             height: 4px;
             background: #ccc;
             margin: 0 5px;
             transition: background 0.3s;
         }
 
+        .blogs-area .blogs-title {
+            color: #828282;
+            font-size: 50px;
+            text-align: start;
+        }
+
         .indicator.active {
             background: #025949;
-            width: 200px;
+            width: 170px;
+        }
+
+        .card-title{
+            padding-top: 5px !important;
+        }
+        .category{
+            color:#828282;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .time{
+            color:#828282;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .card{
+            border-radius: unset !important;
+        }
+
+        .card img{
+            border-radius: unset;
         }
 
         @media (max-width: 1530px) {
@@ -218,6 +226,10 @@
                 left: 0;
                 padding: 10px;
                 bottom: 15%;
+            }
+
+            .highlight-box p {
+                max-width: 100%;
             }
 
         }
@@ -265,19 +277,19 @@
                             <div class="slide-item">
                                 <div class="row align-items-center">
                                     <div class="col-md-5 content ps-lg-5">
-                                        <h2>How to Design Your Living Room, <br> If You Want to Emphasize Your Exposed Brick
-                                            Walls</h2>
-                                        <p class="article-info">ARTICLE <br> 4 min</p>
+                                        <h2>{{$article->title}}</h2>
+                                        <p class="article-info"><span class="type">{{$article->tag}}</span>
+                                            <br>{{ ($article->created_at)->diffForHumans() }}</p>
                                     </div>
                                     <div class="col-md-7">
-                                        <img src="{{Vite::asset('resources/images/residential.jpg')}}" alt="Living Room"
+                                        <img src="{{ asset('storage/' . $article->image_path) }}" alt="Living Room"
                                              class="img-fluid">
                                     </div>
                                 </div>
 
                                 <!-- .highlight-box'ı buraya taşıdık -->
                                 <div class="highlight-box">
-                                    <p>In dPb interiors, we don’t design your place. We bring your dreams to life.</p>
+                                    <p>{{$article->caption}}</p>
                                     <a href="#" class="read-more">Read More</a>
                                 </div>
                             </div>
@@ -289,9 +301,9 @@
             <div class="d-flex gap-5 align-items-center justify-content-end">
 
                 <div class="slide-indicators">
-                    <span class="indicator active"></span>
-                    <span class="indicator"></span>
-                    <span class="indicator"></span>
+                    @foreach($articles->where('is_promoted', 1) as $index => $article)
+                        <span class="indicator {{ $index == 0 ? 'active' : '' }}"></span>
+                    @endforeach
                 </div>
 
                 <div class="custom-nav">
@@ -306,13 +318,33 @@
 
     <section class="blogs-area">
         <div class="container">
-            <div class="row">
-
+            <h2 class="blogs-title">Featured Stories</h2>
+            <div class="row mt-3">
+                @foreach($articles as $article)
+                    <div class="col-md-4 mb-4">
+                        <a href="" class="">
+                            <div class="card works-card h-100">
+                                <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top"
+                                     alt="Interior">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="category">{{$article->tag}}</p>
+                                        <p class="time">{{ ($article->created_at)->diffForHumans() }}</p>
+                                    </div>
+                                    <h5 class="card-title">{{ $article->title }}</h5>
+                                    <p class="card-text">{{ $article->caption }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
+
 @endsection
 
 @section('scripts')
+
 
 @endsection

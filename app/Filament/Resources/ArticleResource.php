@@ -56,6 +56,10 @@
                              ->label(__('panel.caption'))
                              ->columnSpan(12),
 
+                         TextInput::make('tag')
+                             ->label(__('panel.tag'))
+                             ->columnSpan(12),
+
                          RichEditor::make('description')
                              ->label(__('panel.description'))
                              ->columnSpan(12),

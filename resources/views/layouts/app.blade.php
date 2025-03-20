@@ -117,6 +117,11 @@
             updateIndicators(-1);
         });
 
+        // El ile kaydırma sonrası çalışacak event listener
+        owl.on("translated.owl.carousel", function(event) {
+            updateIndicatorsByOwl(event);
+        });
+
         function updateIndicators(direction) {
             let indicators = $(".indicator");
             let activeIndex = indicators.index($(".indicator.active"));
@@ -127,9 +132,23 @@
             indicators.removeClass("active");
             indicators.eq(newIndex).addClass("active");
         }
-    });
 
+        function updateIndicatorsByOwl(event) {
+            let indicators = $(".indicator");
+            let currentIndex = event.item.index - event.relatedTarget._clones.length / 2;
+
+            if (currentIndex < 0) {
+                currentIndex = indicators.length - 1;
+            } else if (currentIndex >= indicators.length) {
+                currentIndex = 0;
+            }
+
+            indicators.removeClass("active");
+            indicators.eq(currentIndex).addClass("active");
+        }
+    });
 </script>
+
 <!-- Layout'unuzun en altında -->
 
 
