@@ -30,7 +30,7 @@
                 @if($works->count() > 0)
                     @foreach($works as $work)
                         <div wire:key="work-{{ $work->id }}" class="col-md-4 mb-4">
-                            <a href="" class="">
+                            <a href="{{ route('works-detail', ['slug' => $work->slug]) }}" class="">
                                 <div class="card works-card h-100">
                                     <img src="{{ asset('storage/' . $work->image_path) }}" class="card-img-top" alt="Interior">
                                     <div class="card-body">

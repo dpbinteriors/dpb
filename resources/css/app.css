@@ -1,7 +1,6 @@
 
-
 .gap {
-    padding: 120px 0px;
+    padding: 80px 0px;
 }
 
 
@@ -12,7 +11,6 @@
 .hidden-mobile {
     display: none;
 }
-
 
 
 @font-face {
@@ -365,8 +363,8 @@ p {
     border-color: #ccc !important; /* Kenarlığın sabit kalmasını sağlar */
 }
 
-.py-120{
-    padding:120px 0px;
+.py-120 {
+    padding: 120px 0px;
 }
 
 
@@ -427,11 +425,13 @@ textarea {
     text-align: center;
     margin-bottom: 40px;
 }
+
 .image-container img {
     width: 100%;
     height: auto;
     display: block;
 }
+
 .image-title {
     position: absolute;
     bottom: -40px;
@@ -443,8 +443,14 @@ textarea {
     white-space: nowrap;
     letter-spacing: 0.22em;
 }
-.title-green { color: #1E463E; }
-.title-orange { color: #E3702D; }
+
+.title-green {
+    color: #1E463E;
+}
+
+.title-orange {
+    color: #E3702D;
+}
 
 .input-wrapper:focus-within .line {
     background-color: #555;
@@ -454,7 +460,7 @@ textarea {
     background-color: #134e2d;
 }
 
-.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active{
+.btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
     background-color: #fb8925;
     color: #1E463E;
 }
@@ -625,42 +631,53 @@ textarea {
         left: 0;
         padding: 40px;
     }
+
     .green-box h4 {
         text-align: left;
     }
-    .contact-title{
+
+    .contact-title {
         font-size: 44px;
-        text-wrap:wrap;
+        text-wrap: wrap;
     }
-    .contact-subtitle{
+
+    .contact-subtitle {
         font-size: 30px;
         padding-left: 0;
     }
-    .contact-form-area .contact-btn{
+
+    .contact-form-area .contact-btn {
         right: unset;
         left: 0;
         width: 100%;
     }
+
     .btn-send {
         width: 100%;
         color: #fff;
     }
-    .our-works-area::before{
+
+    .our-works-area::before {
         display: none;
     }
-    .our-works-area::after{
+
+    .our-works-area::after {
         display: none;
     }
-    .our-works-area .works-title{
+
+    .our-works-area .works-title {
         font-size: 66px !important;
     }
-    .our-works-area ul li a{
+
+    .our-works-area ul li a {
         font-size: 20px !important;
     }
+
     .our-works-area ul {
         padding-left: 0;
     }
-    .our-works-area .works-title{
+
+    .our-works-area .works-title {
         justify-content: center;
         gap: 20px;
     }
@@ -743,7 +760,7 @@ textarea {
     position: relative;
 }
 
-a{
+a {
     text-decoration: none !important;
 }
 
@@ -783,7 +800,7 @@ a{
     color: #444343;
     font-size: 33px;
     font-weight: 600;
-    padding-top: 50px;
+    padding-top: 0px;
     margin-bottom: 2px;
 }
 
@@ -994,10 +1011,9 @@ a{
     width: 100%;
 }
 
-.flex-1{
-    flex:1;
+.flex-1 {
+    flex: 1;
 }
-
 
 
 .our-works-area .works-title {
@@ -1009,7 +1025,7 @@ a{
     font-weight: 500;
 }
 
-.our-works-area .works-title span{
+.our-works-area .works-title span {
     color: #FB8925;
 }
 
@@ -1023,15 +1039,15 @@ a{
     background-color: #025949; /* Turuncu Çizgi */
 }
 
-a{
-    cursor:pointer;
+a {
+    cursor: pointer;
 }
 
-.works-card{
+.works-card {
     transition: all 0.3s ease-in-out;
 }
 
-.works-card:hover{
+.works-card:hover {
     transform: scale(1.05);
 }
 
@@ -1045,7 +1061,7 @@ a{
     background-color: #FB8925; /* Yeşil Çizgi */
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -1053,7 +1069,7 @@ a{
     list-style: none;
 }
 
-.our-works-area ul li a{
+.our-works-area ul li a {
     text-decoration: none;
     font-size: 32px;
     text-align: start;
@@ -1062,11 +1078,11 @@ a{
     transition: all 300ms ease;
 }
 
-.our-works-area ul li a:hover{
+.our-works-area ul li a:hover {
     color: #FB8925;
 }
 
-.our-works-area ul li a.active{
+.our-works-area ul li a.active {
     text-decoration: none;
     font-size: 32px;
     text-align: start;
@@ -1075,23 +1091,11 @@ a{
 }
 
 .breadcrumb-image {
-    min-height: 350px;
+    min-height: 700px;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
 }
 
-@media (min-width: 768px) {
-    .breadcrumb-image {
-        min-height: 500px;
-        padding-bottom: 0;
-    }
-}
-
-@media (max-width: 767px) {
-    .breadcrumb-image {
-        padding-bottom: 48px;
-    }
-}
 
 .overlay {
     position: absolute;
@@ -1112,19 +1116,97 @@ a{
     color: #fff;
 }
 
+.works-content-area .container .content-header {
+    position: relative;
+}
 
-@media (max-width: 992px) {
+.works-content-area .content-header::before {
+    position: absolute;
+    content: "";
+    width: 250%;
+    bottom:-20px;
+    height: 2px;
+    left: -30%;
+    background: rgba(0, 0, 0, 0.08);
+}
 
+.works-content-area h2 {
+    color: rgba(37, 32, 32, 0.92);
+    font-size: 52px;
 
-    .content-box img {
-        height: 300px;
-    }
+}
 
-    .text-content {
-        text-align: center;
-        margin-top: 20px;
-        width: 100%;
-    }
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 300px;
+    flex:1;
+}
+.info-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    text-align: left;
+    font-weight: 300;
+}
+
+.info-list i{
+    padding-right: 10px;
+}
+
+.info-list strong {
+    font-weight: 600;
+}
+.sub-text {
+    opacity: .5;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px; /* Eşit yükseklik */
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1); /* Hover'da büyüt */
+}
+
+.works-gallery .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.works-gallery .overlay i {
+    color: white;
+    font-size: 2rem;
+}
+
+.works-gallery h2{
+    color:#FB8925;
+}
+.works-gallery span{
+    color:#025949;
 }
 
 .footer {
@@ -1178,6 +1260,27 @@ a{
 
 .footer-links .fw-bold {
     font-size: 31px;
+}
+
+@media (max-width: 992px) {
+
+
+    .content-box img {
+        height: 300px;
+    }
+
+    .text-content {
+        text-align: center;
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 767px) {
+    .breadcrumb-image {
+        padding-bottom: 48px;
+    }
 }
 
 

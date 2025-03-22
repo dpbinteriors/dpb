@@ -78,12 +78,25 @@ class WorkResource extends Resource
                             ->required(),
 
 
+
                         Select::make('category_id')
                             ->label(__('panel.category'))
                             ->columnSpan(6)
                             ->options(WorksCategories::all()->pluck('title', 'id'))
                             ->native(false)
                             ->required(),
+
+
+                        FileUpload::make('gallery')
+                            ->label(__("Gallery"))
+                            ->directory('article_gallery')
+                            ->extraAttributes(['class' => 'gallery-section'])
+                            ->reorderable()
+                            ->multiple()
+                            ->imagePreviewHeight('100')
+                            ->downloadable()
+                            ->image()
+                            ->panelLayout('circular')->columnSpan(12),
 
                     ])->columns(12)->columnSpan(8),
                 Section::make(__("panel.publish_settings"))

@@ -50,9 +50,8 @@ class WebController extends BaseController
         SEOTools::webPage(__('Dpb Interior - Ana Sayfa'), __('Our company, which started its commercial activities in 1985, aimed to develop and expand in other sectors by adopting a successful working principle in the future. With its years of experience in the spare parts sector, it works with the aim of providing the best service to its customers in a way that dominates the needs of the market.'));
 
         $slides = Slide::published()->orderBy('position', 'asc')->get();
-        $campaigns = Campaign::published()->orderBy('position', 'asc')->get();
 
-        return view('home', compact('slides', 'campaigns'));
+        return view('home', compact('slides', ));
     }
 
     public function residential(): View
@@ -152,15 +151,21 @@ class WebController extends BaseController
 
     public function worksDetail($slug): View
     {
-        $campaign = Campaign::where('slug->' . app()->getLocale(), $slug)
+        $work = Works::where('slug->' . app()->getLocale(), $slug)
             ->where('publish_at', '<=', now())
             ->where(function ($query) {
                 $query->where('publish_until', '>=', now())->orWhereNull('publish_until');
             })
             ->firstOrFail();
 
-        $campaigns = Campaign::where('is_published', true)
-            ->where('id', '!=', $campaign->id)
+        $otherWorks = Works::published()
+            ->where('is_published', true)
+            ->where('id', '!=', $work->id) // Mevcut blogu hariç tut
+            ->limit(8)
+            ->get();
+
+        $works = Works::where('is_published', true)
+            ->where('id', '!=', $work->id)
             ->where('publish_at', '<=', now())
             ->where(function ($query) {
                 $query->where('publish_until', '>=', now())->orWhereNull('publish_until');
@@ -169,11 +174,11 @@ class WebController extends BaseController
             ->get();
 
         // Eğer caption null ise, boş bir string olarak set et
-        $description = $campaign->caption ?? '';
+        $description = $work->caption ?? '';
 
-        SEOTools::webPage($campaign->title, $description);
+        SEOTools::webPage($work->title, $description);
 
-        return view('campaigns/details', compact('campaign', 'campaigns'));
+        return view('works/details', compact('work', 'works','otherWorks'));
     }
 
     public function legalPage($slug): View
