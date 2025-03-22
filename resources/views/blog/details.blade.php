@@ -24,21 +24,21 @@
 
 @section('content')
 
-    <section
-        class="about-image bg-cover bg-center relative text-center w-full min-h-[350px] md:min-h-[500px] md:pb-0 pb-48 flex items-center before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-[linear-gradient(11deg,_rgba(9,_76,_105,_0.63)_10.79%,_rgba(13,_112,_155,_0)_91.78%)] before:z-0"
-        style="background-image: url('{{ asset('storage/' . $currentBlog->image_path) }}');">
+    <section class="breadcrumb-image position-relative text-center w-100 d-flex align-items-center"
+             style="background-image: url('{{ asset('storage/' . $currentBlog->image_path) }}');">
+        <div class="overlay"></div>
         <div class="container relative">
             <div class="container-2 ">
                 <div class="content-area absolute left-0 right-0">
-                    <h1 class="text-white text-5xl  font-bold  ">
+                    <h1 class="   font-bold  ">
                         {{$currentBlog->title}}
                     </h1>
-                    <p class="text-white text-base font-medium leading-normal pt-24">
+                    <p class="text-white ">
                         <span
-                            class=" pr-8text-white text-base font-normal leading-normal">{!! __('Published on:') !!}</span>
+                            class=" pr-8text-white ">{!! __('Published on:') !!}</span>
                         {{ $currentBlog->created_at->translatedFormat('d F Y') }}
                         <span
-                            class="pr-8 pl-16 text-white text-base font-normal leading-normal">{!! __('Published in:') !!}</span>
+                            class="pr-8 pl-16 text-white ">{!! __('Published in:') !!}</span>
                         {{ $currentBlog->created_at->translatedFormat('d F Y') }} , {!! __('News') !!}
                     </p>
                 </div>
@@ -47,82 +47,41 @@
     </section>
 
 
-    <section class="blog-content-area md:pt-[100px] py-48 md:pb-64">
+    <section class="blog-content-area gap ">
         <div class="container">
-            <div class="container-2">
-                {!! $currentBlog->description !!}
-                <div class="socials pt-64 max-w-none md:max-w-[50%] lg:max-w-[220px]">
-                    <div class=" flex gap-16 items-center border-t border-b border-gray-300 py-8 px-16">
-                        <span class="text-sm font-bold uppercase leading-tight text-main-textGreen">SHARE ON</span>
-                        <div class="flex gap-4">
-                            <a href="#" class="text-gray-600 hover:text-gray-800">
-                                <img src="{{Vite::asset('resources/images/icons/wp-blog-detail.svg')}}" alt="">
-                            </a>
-                            <a href="#" class="text-gray-600 hover:text-gray-800">
-                                <img src="{{Vite::asset('resources/images/icons/facebook-blog-detail.svg')}}"
-                                     alt="">
-                            </a>
-                            <a href="#" class="text-gray-600 hover:text-gray-800">
-                                <img src="{{Vite::asset('resources/images/icons/twitter-blog-detail.svg')}}" alt="">
-                            </a>
-                            <a href="#" class="text-gray-600 hover:text-gray-800">
-                                <img src="{{Vite::asset('resources/images/icons/linkedIn.svg')}}" alt="">
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
+            <h2>{{$currentBlog->title}}</h2>
+            <div class="row">
+            {!! $currentBlog->description !!}
             </div>
         </div>
     </section>
 
 
-    <section class="other-news bg-brand-bg py-[100px]">
+    <section class="blogs-area">
         <div class="container">
-            <div class="container-2">
-                <h2 class="w-full text-center text-brand-text text-2xl font-bold leading-loose ">{!! __('Diğer Haberler') !!}</h2>
-                <div class="blog-area mt-48 relative">
-                    <div
-                        class="blog-card-wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 lg:gap-32">
-                        <!-- Blog Card 1 -->
-                        @foreach($otherArticles as $article )
-                            <a href="{{ route('blog-detail', ['slug' => $article?->slug]) }}"
-                               class="blog-card group relative block">
-                                <div class="blog-card-im relative overflow-hidden">
-                                    <img
-                                        class="w-full h-[250px] object-cover rounded-lg transition duration-300 ease-in-out group-hover:brightness-50"
-                                        src="{{ asset('storage/' . $article->image_path) }}" alt="">
-                                    <div
-                                        class="absolute bottom-5 left-3.5 text-sm font-medium text-main-text bg-white bg-opacity-50 px-2 py-1 rounded">
-                                        {{ $article->created_at->translatedFormat('d F Y') }}
+            <h2 class="blogs-title">Other Blogs</h2>
+            <div class="row mt-3">
+                @foreach($otherArticles as $article )
+                    <div class="col-md-4 mb-4">
+                        <a href="{{ route('blog-detail', ['slug' => $article->slug]) }}" class="">
+                            <div class="card works-card h-100">
+                                <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top"
+                                     alt="Interior">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="category">{{$article->tag}}</p>
+                                        <p class="time">{{ ($article->created_at)->diffForHumans() }}</p>
                                     </div>
-                                    <!-- Hover'da ortaya çıkan buton -->
-                                    <div
-                                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                     <span class="bg-brand-light py-10 pl-24 px-[18px] flex items-center gap-3 text-brand-text text-base font-bold rounded-full
-                  transition-all duration-300 ease-in-out hover:bg-brand-light hover:text-black hover:shadow-lg">
-                  {!! __('Read More') !!}
-                                      <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24" fill="none"
-                                           viewBox="0 0 24 24"
-                                           stroke="currentColor">
-                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                   d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                                       </svg>
-                                            </span>
-                                    </div>
+                                    <h5 class="card-title">{{ $article->title }}</h5>
+                                    <p class="card-text">{{ $article->caption }}</p>
                                 </div>
-                                <div class="blog-card-content">
-                                    <h1 class="my-24 text-xl font-semibold leading-relaxed text-main-text group-hover:text-brand-dark">{{$article->title}}</h1>
-                                    <p class="text-main-text text-base font-normal leading-normal">{{$article->title}}</p>
-                                </div>
-                            </a>
-                        @endforeach
+                            </div>
+                        </a>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
-
 @endsection
 
 @section('scripts')

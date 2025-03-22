@@ -75,9 +75,9 @@
         }
 
 
-    .card{
-        box-shadow: unset !important;
-    }
+        .card {
+            box-shadow: unset !important;
+        }
 
         .highlight-box {
             position: absolute;
@@ -199,25 +199,27 @@
             width: 170px;
         }
 
-        .card-title{
+        .card-title {
             padding-top: 5px !important;
         }
-        .category{
-            color:#828282;
+
+        .category {
+            color: #828282;
             font-size: 24px;
             font-weight: bold;
         }
-        .time{
-            color:#828282;
+
+        .time {
+            color: #828282;
             font-size: 14px;
             font-weight: bold;
         }
 
-        .card{
+        .card {
             border-radius: unset !important;
         }
 
-        .card img{
+        .card img {
             border-radius: unset;
         }
 
@@ -322,7 +324,7 @@
             <div class="row mt-3">
                 @foreach($articles as $article)
                     <div class="col-md-4 mb-4">
-                        <a href="" class="">
+                        <a href="{{ route('blog-detail', ['slug' => $article->slug]) }}" class="">
                             <div class="card works-card h-100">
                                 <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top"
                                      alt="Interior">

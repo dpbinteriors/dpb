@@ -188,5 +188,5 @@ return [
     ])->toArray(),
 
     // supported locales
-    'supported_locales' => ['tr', 'en'],
+    'supported_locales' => ['en', 'tr'],
 ];

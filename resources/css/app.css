@@ -1074,6 +1074,44 @@ a{
     font-weight: bold;
 }
 
+.breadcrumb-image {
+    min-height: 350px;
+    background-size: cover;
+    background-position: center;
+}
+
+@media (min-width: 768px) {
+    .breadcrumb-image {
+        min-height: 500px;
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .breadcrumb-image {
+        padding-bottom: 48px;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(11deg, rgba(2, 89, 73, 0.63) 10.79%, rgba(2, 89, 73, 0) 91.78%);
+    z-index: 0;
+}
+
+.breadcrumb-image .content-area {
+    position: relative;
+    z-index: 9;
+}
+
+.breadcrumb-image .content-area h1 {
+    color: #fff;
+}
+
 
 @media (max-width: 992px) {
 

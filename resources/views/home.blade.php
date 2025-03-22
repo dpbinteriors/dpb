@@ -1,6 +1,24 @@
 @extends('layouts.app', ['hideHeader' => true],['hideFooter'=>true])
 
 @section('meta')
+    <title>{{__('HOME_PAGE_META_TITLE')}}</title>
+    <meta name="description"
+          content="{{__('HOME_PAGE_META_DESCRIPTION')}}">
+    <meta name="keywords"
+          content="{{__('Key, Words')}}">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <meta property="og:title" content="{{__('HOME_PAGE_META_TITLE')}}">
+    <meta property="og:description" content="{{__('HOME_PAGE_META_DESCRIPTION')}}">
+    <meta property="og:image" content="{{Vite::asset('resources/images/og.png')}}">
+    <meta property="og:url" content="{{url()->current()}}">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{__('HOME_PAGE_META_TITLE')}}">
+    <meta name="twitter:description" content="{{__('HOME_PAGE_META_DESCRIPTION')}}">
+
+
 <style>
     .container-fluid {
         display: flex;
@@ -184,7 +202,7 @@
             <img src="{{Vite::asset('resources/images/residential.jpg')}}" alt="Residential">
             <div class="overlay"></div>
             <div class="title orange">
-                <h2 class="orange">Residential</h2>
+                <h2 class="orange">{!! __('Residential') !!}</h2>
             </div>
         </a>
     </div>
@@ -194,7 +212,7 @@
             <img src="{{Vite::asset('resources/images/commercial.jpg')}}" alt="Commercial">
             <div class="overlay"></div>
             <div class="title green text-end">
-                <h2 class="green">Commercial</h2>
+                <h2 class="green">{!! __('Commercial') !!}</h2>
             </div>
         </a>
     </div>
