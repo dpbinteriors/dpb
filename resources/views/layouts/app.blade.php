@@ -151,6 +151,28 @@
             indicators.eq(currentIndex).addClass("active");
         }
     });
+
+
+</script>
+<script>
+    $(document).ready(function() {
+        let items = $(".slide-list-area li");
+        let currentIndex = 0;
+
+        // İlk öğeyi aktif yap
+        $(items[currentIndex]).addClass("active");
+
+        // 3 saniyede bir aktif öğeyi değiştir
+        setInterval(function() {
+            // Önceki aktif öğeyi pasif yap
+            $(items[currentIndex]).removeClass("active");
+
+            // Yeni öğeyi aktif yap
+            currentIndex = (currentIndex + 1) % items.length; // Sıra sonuna geldiyse başa dön
+            $(items[currentIndex]).addClass("active");
+        }, 3000); // 3 saniye
+    });
+
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 

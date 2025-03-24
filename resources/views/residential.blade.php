@@ -2,6 +2,48 @@
 
 @section('meta')
 
+    <title>{{__('RESIDENTIAL_PAGE_META_TITLE')}}</title>
+    <meta name="description"
+          content="{{__('RESIDENTIAL_PAGE_META_DESCRIPTION')}}">
+    <meta name="keywords"
+          content="{{__('resitdential, page, keywords')}}">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <meta property="og:title" content="{{__('RESIDENTIAL_PAGE_META_TITLE')}}">
+    <meta property="og:description" content="{{__('RESIDENTIAL_PAGE_META_DESCRIPTION')}}">
+    <meta property="og:image" content="{{Vite::asset('resources/images/og.png')}}">
+    <meta property="og:url" content="{{url()->current()}}">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{__('RESIDENTIAL_PAGE_META_TITLE')}}">
+    <meta name="twitter:description" content="{{__('RESIDENTIAL_PAGE_META_DESCRIPTION')}}">
+    <meta name="twitter:image" content="{{Vite::asset('resources/images/og.png')}}">
+
+    <style>
+        /* Genel stil */
+        .owl-carousel .item {
+            padding: 10px 0;
+            text-align: center;
+            list-style-type: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Aktif öğe için stil */
+        .owl-carousel .item.active {
+            background-color: #025949;
+            color: #FB8925;
+        }
+
+        /* Pasif öğe için varsayılan stil */
+        .owl-carousel .item {
+            background-color: #f0f0f0;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+    </style>
 @endsection
 
 @section('content')
@@ -35,23 +77,23 @@
             <div class="text-start">
                 <h2 class="explore-text">Explore how <strong>Design Plan Build</strong> process works</h2>
             </div>
-            <div class="col-12 col-sm-6 col-lg-3 mb-4">
+            <div class="col-12 col-sm-6 col-lg-3 my-5">
                 <img src="{{Vite::asset('resources/images/home-icon.svg')}}" alt="Survey Icon" class="mb-3">
                 <h4 class="py-3">Detailed Survey of Your House</h4>
                 <p>We measure your space with the little details, take notes for the areas to be fixed and designed.</p>
             </div>
-            <div class="col-12 col-sm-6 col-lg-3 mb-4">
+            <div class="col-12 col-sm-6 col-lg-3 my-5">
                 <img src="{{Vite::asset('resources/images/home-icon-2.svg')}}" alt="AI Design Icon" class="mb-3">
                 <h4 class="py-3">AI Supported Design Process</h4>
                 <p>We make you decide by seeing various different options.</p>
             </div>
-            <div class="col-12 col-sm-6 col-lg-3 mb-4">
+            <div class="col-12 col-sm-6 col-lg-3 my-5">
                 <img src="{{Vite::asset('resources/images/home-icon-3.svg')}}" alt="3D Animation Icon" class="mb-3">
                 <h4 class="py-3">3D Animation & Detail Drawings</h4>
                 <p>We invite you to your space digitally. After you watch the tour video, you will receive the
                     details.</p>
             </div>
-            <div class="col-12 col-sm-6 col-lg-3 mb-4">
+            <div class="col-12 col-sm-6 col-lg-3 my-5">
                 <img src="{{Vite::asset('resources/images/home-icon-4.svg')}}" alt="Construction Icon" class="mb-3">
                 <h4 class="py-3">Construction & Installation</h4>
                 <p>Our construction team provides transparent & clean construction process.</p>
@@ -63,7 +105,7 @@
 
 
 <div class="container-fluid custom-section mb-4">
-    <div class="container ">
+    <div class="container overflow-visible ">
         <div class="row gx-5 py-3">
             <div class="col-lg-6 col-12">
                 <div class="content-box">
@@ -91,7 +133,6 @@
                         <li>
                             Follow the construction regularly, without
                             unpleasant surprises.
-
                         </li>
                     </ul>
                 </div>
