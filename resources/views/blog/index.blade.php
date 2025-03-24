@@ -303,10 +303,12 @@
             <div class="d-flex gap-5 align-items-center justify-content-end">
 
                 <div class="slide-indicators">
-                    @foreach($articles->where('is_promoted', 1) as $index => $article)
+                    @foreach($articles->where('is_promoted', 1)->values() as $index => $article)
                         <span class="indicator {{ $index == 0 ? 'active' : '' }}"></span>
                     @endforeach
                 </div>
+
+
 
                 <div class="custom-nav">
                     <button class="prev-slide"></button>

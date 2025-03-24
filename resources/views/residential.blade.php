@@ -29,31 +29,31 @@
 
 
 <div class="packs">
-    <div class="container px-1 px-xl-5 py-5">
+    <div class="container px-1 px-xl-5 pb-2">
 
         <div class="row  mt-5 gx-5 text-center">
             <div class="text-start">
-                <p class="explore-text">Explore how <strong>Design Plan Build</strong> process works</p>
+                <h2 class="explore-text">Explore how <strong>Design Plan Build</strong> process works</h2>
             </div>
             <div class="col-12 col-sm-6 col-lg-3 mb-4">
                 <img src="{{Vite::asset('resources/images/home-icon.svg')}}" alt="Survey Icon" class="mb-3">
-                <h5 class="py-3">Detailed Survey of Your House</h5>
+                <h4 class="py-3">Detailed Survey of Your House</h4>
                 <p>We measure your space with the little details, take notes for the areas to be fixed and designed.</p>
             </div>
             <div class="col-12 col-sm-6 col-lg-3 mb-4">
                 <img src="{{Vite::asset('resources/images/home-icon-2.svg')}}" alt="AI Design Icon" class="mb-3">
-                <h5 class="py-3">AI Supported Design Process</h5>
+                <h4 class="py-3">AI Supported Design Process</h4>
                 <p>We make you decide by seeing various different options.</p>
             </div>
             <div class="col-12 col-sm-6 col-lg-3 mb-4">
                 <img src="{{Vite::asset('resources/images/home-icon-3.svg')}}" alt="3D Animation Icon" class="mb-3">
-                <h5 class="py-3">3D Animation & Detail Drawings</h5>
+                <h4 class="py-3">3D Animation & Detail Drawings</h4>
                 <p>We invite you to your space digitally. After you watch the tour video, you will receive the
                     details.</p>
             </div>
             <div class="col-12 col-sm-6 col-lg-3 mb-4">
                 <img src="{{Vite::asset('resources/images/home-icon-4.svg')}}" alt="Construction Icon" class="mb-3">
-                <h5 class="py-3">Construction & Installation</h5>
+                <h4 class="py-3">Construction & Installation</h4>
                 <p>Our construction team provides transparent & clean construction process.</p>
             </div>
         </div>
@@ -108,32 +108,33 @@
         We are quite flexible on adapting on your preferences, new challenges are more than welcomed.<br>
         Classic, industrial, minimalist, mediterranean and more.
     </p>
-    <div class="row">
-        <div class="col-12 col-xl-3 col-lg-4  col-md-6 text-center">
+    <div class="d-flex rooms-area flex-lg-nowrap flex-wrap">
+        <div class="w-300">
             <div class="image-container">
                 <img src="{{Vite::asset('resources/images/project-1.jpg')}}" alt="Living Room">
                 <div class="image-title title-green">LIVING ROOMS</div>
             </div>
         </div>
-        <div class="col-12 col-xl-3 col-lg-4  col-md-6 text-center">
+        <div class="w-400">
             <div class="image-container">
                 <img src="{{Vite::asset('resources/images/project-2.jpg')}}" alt="Kitchen">
                 <div class="image-title title-orange">KITCHENS</div>
             </div>
         </div>
-        <div class="col-12 col-xl-3 col-lg-4  col-md-6 text-center">
+        <div class="w-310">
             <div class="image-container">
                 <img src="{{Vite::asset('resources/images/project-3.jpg')}}" alt="Bedroom">
                 <div class="image-title title-green">BEDROOMS</div>
             </div>
         </div>
-        <div class="col-12 col-xl-3 col-lg-4  col-md-6 text-center">
+        <div class="w-300">
             <div class="image-container">
                 <img src="{{Vite::asset('resources/images/project-4.jpg')}}" alt="Bathroom">
                 <div class="image-title title-orange">BATHROOMS</div>
             </div>
         </div>
     </div>
+
 </div>
 
 
@@ -182,9 +183,9 @@
     </div>
 </div>
 
-    
+
 @endsection
 
 @section('scripts')
-  
+
 @endsection

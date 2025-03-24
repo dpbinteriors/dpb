@@ -18,10 +18,12 @@
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ env('GOOGLE_SITE_TAG') }}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 
     {{-- Bootstrap CSS --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 
     {{-- Livewire Styles --}}
     @livewireStyles
@@ -122,16 +124,18 @@
             updateIndicatorsByOwl(event);
         });
 
-        function updateIndicators(direction) {
+        function updateIndicatorsByOwl(event) {
             let indicators = $(".indicator");
-            let activeIndex = indicators.index($(".indicator.active"));
-            let newIndex = (activeIndex + direction) % indicators.length;
+            let currentIndex = event.item.index % indicators.length;
 
-            if (newIndex < 0) newIndex = indicators.length - 1;
+            if (currentIndex < 0) {
+                currentIndex = indicators.length - 1;
+            }
 
             indicators.removeClass("active");
-            indicators.eq(newIndex).addClass("active");
+            indicators.eq(currentIndex).addClass("active");
         }
+
 
         function updateIndicatorsByOwl(event) {
             let indicators = $(".indicator");

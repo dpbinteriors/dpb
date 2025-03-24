@@ -25,7 +25,7 @@
 
         .card {
             border: none !important;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
         }
 
         .category {
@@ -52,10 +52,11 @@
             justify-content: space-between;
             font-size: 14px;
             font-weight: bold;
+            background:unset !important;
         }
 
         .style {
-            color: #E57373;
+            color: #FB8925;
         }
 
         .type {

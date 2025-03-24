@@ -55,7 +55,7 @@
 
     <section class="works-gallery pb-5 pt-4">
         <div class="container">
-            <h2 class="fw-bold">Works <span class="fw-normal">Gallery</span></h2>
+            <h2 class="fw-bold">Project <span class="fw-normal">Gallery</span></h2>
             <div class="row g-3">
                 @foreach ($work->gallery as $galleryImage)
                     <div class="col-md-4">

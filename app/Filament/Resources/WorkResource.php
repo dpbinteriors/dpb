@@ -49,6 +49,8 @@ class WorkResource extends Resource
                             ->directory('works_main_images')
                             ->visibility('public')->image()
                             ->optimize('webp')
+                            ->imageResizeMode('cover')
+                            ->imageCropAspectRatio('16:9')
                             ->columnSpan(12),
 
 

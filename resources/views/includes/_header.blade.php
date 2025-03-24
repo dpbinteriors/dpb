@@ -29,7 +29,7 @@
                 <div class="nav-menu" id="navMenu">
                     <div class="nav-wrapper"> <!-- Added wrapper for better control -->
                         <a href="{{route('works-index')}}" class="nav-item">Works</a>
-                        <a href="{{route('blog')}}" class="nav-item">NEST & <br> NURTURE</a>
+                        <a href="{{route('blog')}}" class="nav-item">Blog</a>
                         <a href="#" class="nav-item">About</a>
                         <a href="#" class="nav-item">Contact us</a>
                         <a href="#" class="nav-item">Careers</a>
