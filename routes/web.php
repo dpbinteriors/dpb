@@ -23,6 +23,7 @@ Route::localized(function () {
 
     Route::get(Lang::uri('about-us'), [WebController::class, 'aboutUs'])->name('about-us');
     Route::get(Lang::uri('residential'), [WebController::class, 'residential'])->name('residential');
+    Route::get(Lang::uri('commercial'), [WebController::class, 'commercial'])->name('commercial');
     Route::get(Lang::uri('human-resources'), [WebController::class, 'humanResources'])->name('human-resources');
     Route::get(Lang::uri('contact'), [WebController::class, 'contact'])->name('contact');
     Route::get(Lang::uri('works'), [WebController::class, 'worksIndex'])->name('works-index');

@@ -174,6 +174,28 @@
     });
 
 </script>
+<script>
+    $(document).ready(function(){
+        var owl = $(".commercial-slide");
+
+        owl.owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            dots: false,
+            items: 1
+        });
+
+        $(".next-slide").click(function() {
+            owl.trigger("next.owl.carousel");
+        });
+
+        $(".prev-slide").click(function() {
+            owl.trigger("prev.owl.carousel");
+        });
+    });
+
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
 <!-- Layout'unuzun en altında -->
