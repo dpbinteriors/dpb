@@ -40,7 +40,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 20px;
+            height: 15px;
             background-color: #FB8925;
         }
 
@@ -74,7 +74,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 29px;
+            height: 15px;
             background-color: #FB8925;
         }
 
@@ -93,7 +93,6 @@
             color: #fff;
             border-left: 1px solid rgba(204, 204, 204, 0.25);
         }
-
 
 
         /* Yazı alanı */
@@ -129,6 +128,31 @@
             cursor: pointer;
             margin: 0 !important;
         }
+
+        .custom-section {
+            background: linear-gradient(90deg, rgb(2, 89, 73) 37%, rgba(255, 255, 255, 1) 100%) !important;
+        }
+
+        .rooms-area > div:nth-child(1) .image-title {
+            font-size: 40px;
+            letter-spacing: 0.85em !important;
+            transform: translateX(3%) !important;
+            font-weight: bold;
+        }
+
+        .rooms-area > div:nth-child(2) .image-title {
+            font-size: 40px;
+            letter-spacing: .95em !important;
+            font-weight: bold;
+        }
+
+        .rooms-area > div:nth-child(3) .image-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .rooms-area > div:nth-child(4) .image-title{
+            font-size: 26px;
+        }
     </style>
 @endsection
 
@@ -150,7 +174,8 @@
                         </div>
                         <div class="text-container">
                             <h3>We transform spaces, elevate brands.</h3>
-                            <p>If you are looking for a fresh look to your brand, or building a new one, we accompany you with our holistic design services.</p>
+                            <p>If you are looking for a fresh look to your brand, or building a new one, we accompany
+                                you with our holistic design services.</p>
                         </div>
                     </div>
 
@@ -169,7 +194,8 @@
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
                     <img src="{{Vite::asset('resources/images/home-icon.svg')}}" alt="Survey Icon" class="mb-3">
                     <h4 class="py-3">Detailed Survey of Your House</h4>
-                    <p>We measure your space with the little details, take notes for the areas to be fixed and designed.</p>
+                    <p>We measure your space with the little details, take notes for the areas to be fixed and
+                        designed.</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
                     <img src="{{Vite::asset('resources/images/home-icon-2.svg')}}" alt="AI Design Icon" class="mb-3">
@@ -232,33 +258,35 @@
 
 
     <div class="container text-center  py-4">
-        <p class="intro-text">
+        <p class="intro-text text-start">
             We are quite flexible on adapting on your preferences, new challenges are more than welcomed.<br>
             Classic, industrial, minimalist, mediterranean and more.
         </p>
+        <h2 style="color: #6c757d" class="text-start">Check some of our scenes from our latest projects until we finish
+            our 'works' section.</h2>
         <div class="d-flex rooms-area flex-lg-nowrap flex-wrap">
             <div class="w-300">
                 <div class="image-container">
                     <img src="{{Vite::asset('resources/images/project-1.jpg')}}" alt="Living Room">
-                    <div class="image-title title-green">LIVING ROOMS</div>
+                    <div class="image-title title-green">RETAIL</div>
                 </div>
             </div>
             <div class="w-400">
                 <div class="image-container">
                     <img src="{{Vite::asset('resources/images/project-2.jpg')}}" alt="Kitchen">
-                    <div class="image-title title-orange">KITCHENS</div>
+                    <div class="image-title title-orange">OFFICE</div>
                 </div>
             </div>
             <div class="w-310">
                 <div class="image-container">
                     <img src="{{Vite::asset('resources/images/project-3.jpg')}}" alt="Bedroom">
-                    <div class="image-title title-green">BEDROOMS</div>
+                    <div class="image-title title-green">HOSPITALITY</div>
                 </div>
             </div>
             <div class="w-300">
                 <div class="image-container">
                     <img src="{{Vite::asset('resources/images/project-4.jpg')}}" alt="Bathroom">
-                    <div class="image-title title-orange">BATHROOMS</div>
+                    <div class="image-title title-orange">EDUCATIONAL</div>
                 </div>
             </div>
         </div>
@@ -266,10 +294,10 @@
     </div>
 
 
-
     <div class="container my-5">
         <div class="row  text-center">
-            <h2 class="contact-title mb-4 pb-3">Contact us<span class="contact-subtitle">for free consultation</span></h2>
+            <h2 class="contact-title mb-4 pb-3">Contact us<span class="contact-subtitle">for free consultation</span>
+            </h2>
             <div class="col-lg-6 ">
                 <p class="text-start contact-desc">We are always excited to talk about a new project. If you have the
                     pictures of your

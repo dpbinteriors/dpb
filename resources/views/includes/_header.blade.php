@@ -5,8 +5,20 @@
             <div class="col-lg-4 col-md-12 d-flex align-items-end ps-lg-0 ps-xl-5 mb-3 mb-lg-0">
                 <!-- Added margin bottom for mobile -->
                 <div class="title-container">
-                    <div class="residential"><a href="{{route('residential')}}">RESIDENTIAL</a></div>
-                    <div class="commercial"><a href="">COMMERCIAL</a></div>
+                    <div class="residential">
+                        <a href="{{ route('residential') }}" class="fw-normal"
+                           @if(request()->is('residential')) style="color: #FB8925;" @else style="color: #111111; opacity: .2" @endif>
+                            RESIDENTIAL
+                        </a>
+                    </div>
+
+                    <div class="commercial">
+                        <a href="{{ route('commercial') }}" class="fw-normal"
+                           @if(request()->is('commercial')) style="color: #025949; opacity: 1" @else style="color: #111111;" @endif>
+                            COMMERCIAL
+                        </a>
+                    </div>
+
                 </div>
             </div>
 
