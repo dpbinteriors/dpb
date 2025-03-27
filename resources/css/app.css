@@ -140,7 +140,7 @@ p {
     display: flex;
     align-items: flex-end;
     height: 100%;
-    margin-bottom: -5px;
+    margin-bottom: -8px;
     margin-left: 2rem;
 }
 
@@ -148,6 +148,7 @@ p {
     color: #FB8925;
     font-size: 47px;
     line-height: 1;
+    letter-spacing: -0.06em;
     font-weight: 300;
     text-decoration: none;
 }
@@ -183,6 +184,7 @@ p {
 
 .nav-menu {
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .nav-wrapper {
@@ -574,7 +576,9 @@ a {
 
 /* Aktif öğe için stil */
 .slide-list-area li.active {
-    background-color: #025949;
+
+    background: linear-gradient(90deg, rgb(2, 89, 73) 37%, rgba(255, 255, 255, 1) 100%) !important;
+
     color: #FB8925;
 }
 
@@ -1244,7 +1248,7 @@ h2 {
     }
 
     .title-container {
-        margin-bottom: 0;
+        margin-bottom: -8px;
     }
 
     .menu-img {

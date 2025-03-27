@@ -153,6 +153,15 @@
         .rooms-area > div:nth-child(4) .image-title{
             font-size: 26px;
         }
+
+        .slide-list-area li:not(.active){
+            background-color: rgba(2, 89, 73, 0.11) !important;
+        }
+        .slide-list-area li.active{
+            color: #fff !important;
+            background: linear-gradient(90deg, rgb(251, 137, 37) 37%, rgba(255, 255, 255, 1) 100%) !important;
+
+        }
     </style>
 @endsection
 
@@ -178,7 +187,21 @@
                                 you with our holistic design services.</p>
                         </div>
                     </div>
-
+                    <div class="carousel-item ">
+                        <div class="image-container-commercial">
+                            <img src="{{Vite::asset('resources/images/residential.jpg')}}" alt="Project Image">
+                            <div class="image-text">Ellie's Nursery<br>Interior Design</div>
+                        </div>
+                        <div class="custom-nav">
+                            <button class="prev-slide"></button>
+                            <button class="next-slide"></button>
+                        </div>
+                        <div class="text-container">
+                            <h3>We transform spaces, elevate brands.</h3>
+                            <p>If you are looking for a fresh look to your brand, or building a new one, we accompany
+                                you with our holistic design services.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -221,35 +244,41 @@
     <div class="container-fluid custom-section mb-4">
         <div class="container overflow-visible ">
             <div class="row gx-5 py-3">
-                <div class="col-lg-6 col-12">
+                <div class="col-lg-7 col-12">
                     <div class="content-box">
                         <img src="{{Vite::asset('resources/images/about-img.jpg')}}" alt="Animated GIF">
                     </div>
                 </div>
-                <div class="col-lg-6 col-12 text-content">
+                <div class="col-lg-5 col-12 text-content">
                     <div class="content-box-2">
-                        <h5>Look at our catalogue and discuss with our designers.</h5>
-                        <p>Our style catalogue is shaped by our designers to let you think by
-                            seeing the possibilities. <br>
-                            We will listen your needs and interests carefully to understand
-                            what would make you happy.</p>
-                        <ul class="slide-list-area">
-                            <li>Look at our catalogue and discuss with our
-                                designers.
-                            </li>
-                            <li>
-                                See various styles and finishes in a short time.
-                            </li>
-                            <li>
-                                Walk in the space, see details in 3D drawings,
-                                be aware every detail of your project.
-                            </li>
-                            <li>
-                                Follow the construction regularly, without
-                                unpleasant surprises.
-                            </li>
-                        </ul>
+                        <h5 id="slide-title">Look at our catalogue and discuss with our designers.</h5>
+                        <p id="slide-desc">
+                            Our style catalogue is shaped by our designers to let you think by seeing the possibilities.<br>
+                            We will listen to your needs and interests carefully to understand what would make you
+                            happy.
+                        </p>
                     </div>
+
+                    <ul class="slide-list-area">
+                        <li data-title="Look at our catalogue and discuss with our designers."
+                            data-desc="Our style catalogue is shaped by our designers to let you think by seeing the possibilities. We will listen to your needs and interests carefully to understand what would make you happy."
+                            class="active">
+                            Look at our catalogue and discuss with our designers.
+                        </li>
+                        <li data-title="See various styles and finishes in a short time."
+                            data-desc="We will bring you a moodboard and some quick renders to let youimagine the styles in your space.According to your selections, you will receive a concept designas we called `design pack`.">
+                            See various styles and finishes in a short time.
+                        </li>
+                        <li data-title="Walk in the space, see details in 3D drawings."
+                            data-desc="In the `Plan Pack`, we will give you the construction details of the projectand give you a virtual walk in the finished project. Also you will receive an estimated budget and a shopping list.">
+                            Walk in the space, see details in 3D drawings.
+                        </li>
+                        <li data-title="Follow the construction without surprises."
+                            data-desc="Our confidence is coming from 20 years in London construction industry.We work with realistic deadlines and seamless construction process throughcollaboration of our designers, engineers and builders.">
+                            Follow the construction regularly, without unpleasant surprises.
+                        </li>
+                    </ul>
+
 
                 </div>
             </div>

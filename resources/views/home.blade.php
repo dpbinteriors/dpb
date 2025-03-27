@@ -208,7 +208,7 @@
     </div>
     <div class="logo"><img src="{{Vite::asset('resources/images/logo.svg')}}" alt=""></div>
     <div class="section">
-        <a href="#">
+        <a href="{{route('commercial')}}">
             <img src="{{Vite::asset('resources/images/commercial.jpg')}}" alt="Commercial">
             <div class="overlay"></div>
             <div class="title green text-end">

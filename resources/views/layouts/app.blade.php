@@ -157,23 +157,40 @@
 <script>
     $(document).ready(function() {
         let items = $(".slide-list-area li");
-        let currentIndex = 0;
 
-        // İlk öğeyi aktif yap
-        $(items[currentIndex]).addClass("active");
+        function updateSlide(index) {
+            let currentItem = $(items[index]);
 
-        // 3 saniyede bir aktif öğeyi değiştir
-        setInterval(function() {
+            // Başlık ve açıklamayı güncelle
+            $("#slide-title").text(currentItem.data("title"));
+            $("#slide-desc").text(currentItem.data("desc"));
+
             // Önceki aktif öğeyi pasif yap
-            $(items[currentIndex]).removeClass("active");
+            $(".slide-list-area li").removeClass("active");
 
             // Yeni öğeyi aktif yap
-            currentIndex = (currentIndex + 1) % items.length; // Sıra sonuna geldiyse başa dön
-            $(items[currentIndex]).addClass("active");
-        }, 3000); // 3 saniye
-    });
+            currentItem.addClass("active");
 
+            // **Aşağı kayma efekti (animasyonlu)**
+            $(".slide-list-area").animate({ scrollTop: currentItem.position().top }, 500);
+        }
+
+        // Liste öğelerine tıklanınca geçiş yap
+        $(".slide-list-area li").click(function() {
+            let index = $(this).index();
+            updateSlide(index);
+        });
+
+        // Otomatik geçiş (her 3 saniyede bir)
+        setInterval(function() {
+            let nextIndex = ($(".slide-list-area li.active").index() + 1) % items.length;
+            updateSlide(nextIndex);
+        }, 4000);
+    });
 </script>
+
+
+
 <script>
     $(document).ready(function(){
         var owl = $(".commercial-slide");
@@ -183,7 +200,10 @@
             margin: 10,
             nav: false,
             dots: false,
-            items: 1
+            items: 1,
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            smartSpeed: 800 // Geçiş hızını yumuşatma
         });
 
         $(".next-slide").click(function() {
@@ -194,6 +214,7 @@
             owl.trigger("prev.owl.carousel");
         });
     });
+
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
