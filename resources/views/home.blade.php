@@ -96,13 +96,13 @@
 
     .title .orange{
         font-size: 90px;
-        margin-bottom: -20px;
+        margin-bottom: -25px;
         color: #FB8925;
     }
 
     .title .green{
         font-size: 90px;
-        margin-bottom: -20px;
+        margin-bottom: -25px;
         color: #025949;
     }
 

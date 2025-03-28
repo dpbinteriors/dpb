@@ -26,7 +26,7 @@
 
     <section class="breadcrumb-image position-relative text-center w-100 d-flex align-items-center"
              style="background-image: url('{{ asset('storage/' . $currentBlog->image_path) }}');">
-        <div class="overlay"></div>
+        <div class="blog-overlay"></div>
         <div class="container relative">
             <div class="container-2 ">
                 <div class="content-area absolute left-0 right-0">

@@ -46,7 +46,7 @@
                 </li>
             </ul>
 
-            <div class="content mt-5">
+            <div class="content p-0 text-start mt-5">
                 {!! $work->description !!}
             </div>
 

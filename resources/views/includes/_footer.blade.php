@@ -7,7 +7,8 @@
                 </p>
                 <p class="footer-text">DPB interiors is a branch of dPb Construction ltd.<br>-designed by dPb</p>
             </div>
-            <div class="col-md-4 mt-4 pt-3 mb-4 mb-md-0 footer-texts">
+            <div class="col-md-4   footer-texts">
+                <h5 class="fw-bold">Location</h5>
                 <p>design team - barcelona, sp</p>
                 <p>plan team - istanbul, tr</p>
                 <p>build team (hq) - london, uk</p>

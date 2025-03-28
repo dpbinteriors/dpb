@@ -504,6 +504,7 @@ textarea {
 .packs p {
     font-size: 18px;
     color: #444343;
+    font-weight: 500;
 }
 
 
@@ -591,7 +592,7 @@ a {
 
 .card-title {
     color: #444343;
-    font-size: 33px;
+    font-size: 21px;
     font-weight: 600;
     padding-top: 0px;
     margin-bottom: 2px;
@@ -676,8 +677,8 @@ a {
 
 .text-content h5 {
     color: #444343;
-    font-size: 32px;
-    font-weight: 500;
+    font-size: 35px;
+    font-weight: 700;
     text-align: start;
 }
 
@@ -686,9 +687,14 @@ a {
     font-size: 18px;
     line-height: 29px;
     text-align: start;
-    font-weight: 300;
+    font-weight: 400;
 }
 
+.rooms h4{
+    font-size: 27px;
+    color: #6c757d;
+    margin-bottom: 40px;
+}
 
 .slide-list-area {
     padding-top: 30px;
@@ -820,6 +826,7 @@ a {
 
 .card-footer {
     background-color: unset !important;
+    border:unset !important;
 }
 
 a {
@@ -858,7 +865,7 @@ a {
 }
 
 
-.overlay {
+.blog-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -894,7 +901,15 @@ a {
 .works-content-area h2 {
     color: rgba(37, 32, 32, 0.92);
     font-size: 52px;
+}
 
+.works-content-area .content p{
+    font-size: 18px;
+    color: #6c757d;
+}
+
+.attachment__caption {
+    display: none;
 }
 
 .info-list {
@@ -1152,9 +1167,9 @@ h2 {
 }
 
 .category {
-    color: #828282;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 700;
+    margin-bottom: 5px;
 }
 
 .time {
@@ -1215,13 +1230,23 @@ h2 {
     font-weight: 100;
 }
 
-.footer-texts, .footer-links p {
+.footer-links a {
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 700;
+    line-height: 35px;
+}
+
+.footer-texts p {
+    font-size: 20px;
+    font-weight: 700;
     line-height: 35px;
 }
 
 .footer-links .fw-bold {
+    font-size: 31px;
+}
+
+.footer-texts .fw-bold{
     font-size: 31px;
 }
 

@@ -328,7 +328,7 @@
             <h2 class="contact-title mb-4 pb-3">Contact us<span class="contact-subtitle">for free consultation</span>
             </h2>
             <div class="col-lg-6 ">
-                <p class="text-start contact-desc">We are always excited to talk about a new project. If you have the
+                <p class="text-start fw-medium contact-desc">We are always excited to talk about a new project. If you have the
                     pictures of your
                     rooms with you,
                     we can even start to talk about the design ideas at our first online meeting.</p>

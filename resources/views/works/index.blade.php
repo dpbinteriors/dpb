@@ -31,13 +31,12 @@
         .category {
             color: #ccc;
             font-size: 14px;
-            font-weight: bold;
-            text-transform: uppercase;
+
         }
 
         .card-title {
             font-size: 20px;
-            font-weight: bold;
+
             color: #222;
             padding-top: 0px !important;
         }

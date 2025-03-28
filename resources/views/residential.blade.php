@@ -81,24 +81,24 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
                     <img src="{{Vite::asset('resources/images/home-icon.svg')}}" alt="Survey Icon" class="mb-3">
-                    <h4 class="py-3">Detailed Survey of Your House</h4>
+                    <h4 class="py-3 fw-semibold">Detailed Survey of Your House</h4>
                     <p>We measure your space with the little details, take notes for the areas to be fixed and
                         designed.</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
                     <img src="{{Vite::asset('resources/images/home-icon-2.svg')}}" alt="AI Design Icon" class="mb-3">
-                    <h4 class="py-3">AI Supported Design Process</h4>
+                    <h4 class="py-3 fw-semibold">AI Supported Design Process</h4>
                     <p>We make you decide by seeing various different options.</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
                     <img src="{{Vite::asset('resources/images/home-icon-3.svg')}}" alt="3D Animation Icon" class="mb-3">
-                    <h4 class="py-3">3D Animation & Detail Drawings</h4>
+                    <h4 class="py-3 fw-semibold">3D Animation & Detail Drawings</h4>
                     <p>We invite you to your space digitally. After you watch the tour video, you will receive the
                         details.</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
                     <img src="{{Vite::asset('resources/images/home-icon-4.svg')}}" alt="Construction Icon" class="mb-3">
-                    <h4 class="py-3">Construction & Installation</h4>
+                    <h4 class="py-3 fw-semibold">Construction & Installation</h4>
                     <p>Our construction team provides transparent & clean construction process.</p>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                 </div>
                 <div class="col-lg-5 col-12 text-content">
                     <div class="content-box-2">
-                        <h5 id="slide-title">Look at our catalogue and discuss with our designers.</h5>
+                        <h5 id="slide-title fw-semibold">Look at our catalogue and discuss with our designers.</h5>
                         <p id="slide-desc">
                             Our style catalogue is shaped by our designers to let you think by seeing the possibilities.<br>
                             We will listen to your needs and interests carefully to understand what would make you
@@ -153,11 +153,11 @@
 
 
 
-    <div class="container text-center  py-4">
-        <p class="intro-text">
+    <div class="container rooms  py-4">
+        <h4 class="intro-text">
             We are quite flexible on adapting on your preferences, new challenges are more than welcomed.<br>
             Classic, industrial, minimalist, mediterranean and more.
-        </p>
+        </h4>
         <div class="d-flex rooms-area flex-lg-nowrap flex-wrap">
             <div class="w-300">
                 <div class="image-container">
@@ -194,7 +194,7 @@
             <h2 class="contact-title mb-4 pb-3">Contact us<span class="contact-subtitle">for free consultation</span>
             </h2>
             <div class="col-lg-6 ">
-                <p class="text-start contact-desc">We are always excited to talk about a new project. If you have the
+                <p class="text-start fw-medium contact-desc">We are always excited to talk about a new project. If you have the
                     pictures of your
                     rooms with you,
                     we can even start to talk about the design ideas at our first online meeting.</p>
