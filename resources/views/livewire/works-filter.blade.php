@@ -1,7 +1,7 @@
 <div>
     <section class="our-works-area py-120">
         <div class="container position-relative">
-            <div class="d-flex justify-content-between flex-wrap align-items-center">
+            <div class="d-flex justify-content-between flex-wrap align-items-center works-title-area position-relative">
                 <div class="text-start flex-1">
                     <p class="works-title">Our <span>Works</span></p>
 

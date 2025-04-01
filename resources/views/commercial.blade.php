@@ -162,6 +162,32 @@
             background: linear-gradient(90deg, rgb(251, 137, 37) 37%, rgba(255, 255, 255, 1) 100%) !important;
 
         }
+
+        @media (max-width: 768px){
+            .carousel-item{
+                display: block !important;
+            }
+            .image-container-commercial{
+                margin-top: 0;
+
+            }
+            .custom-commercial-section{
+                padding-bottom: 50px;
+                margin-top: 0 !important;
+            }
+
+            .custom-nav{
+                left: 0;
+                bottom: -8%;
+                max-width: 100%;
+            }
+            .text-container{
+                padding: 20px;
+            }
+            .custom-section {
+                background: linear-gradient(360deg, rgb(2, 89, 73) 37%, rgba(255, 255, 255, 1) 100%) !important;
+            }
+        }
     </style>
 @endsection
 
@@ -169,12 +195,12 @@
 @section('content')
 
     <section class="custom-commercial-section  ">
-        <div class="container">
+        <div class="">
             <div class="carousel-container">
                 <div class="owl-carousel commercial-slide">
                     <div class="carousel-item active show">
-                        <div class="image-container-commercial">
-                            <img src="{{Vite::asset('resources/images/commercial.jpg')}}" alt="Project Image">
+                        <div class="image-container-commercial ">
+                            <img class="" src="{{Vite::asset('resources/images/commercial.jpg')}}" alt="Project Image">
                             <div class="image-text">Ellie's Nursery<br>Interior Design</div>
                         </div>
                         <div class="custom-nav">
@@ -245,7 +271,7 @@
         <div class="container overflow-visible ">
             <div class="row gx-5 py-3">
                 <div class="col-lg-7 col-12">
-                    <div class="content-box">
+                    <div class="content-box mb-lg-0 mb-4">
                         <img src="{{Vite::asset('resources/images/about-img.jpg')}}" alt="Animated GIF">
                     </div>
                 </div>

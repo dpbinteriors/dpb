@@ -111,7 +111,7 @@
         <div class="container overflow-visible ">
             <div class="row gx-5 py-3">
                 <div class="col-lg-7 col-12">
-                    <div class="content-box">
+                    <div class="content-box mb-lg-0 mb-4">
                         <img src="{{Vite::asset('resources/images/about-img.jpg')}}" alt="Animated GIF">
                     </div>
                 </div>

@@ -36,7 +36,6 @@
 
         .card-title {
             font-size: 20px;
-
             color: #222;
             padding-top: 0px !important;
         }

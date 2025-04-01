@@ -30,8 +30,6 @@ body, html {
 }
 
 
-
-
 .slider-container {
     position: relative;
     width: 100%;
@@ -46,13 +44,11 @@ body, html {
 }
 
 
-
 .img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 
 
 .banner-info-area {
@@ -272,7 +268,7 @@ p {
     right: -8%;
 }
 
-.contact-btn button{
+.contact-btn button {
     background-color: #025949;
     color: #fff;
     padding: 15px 30px;
@@ -280,7 +276,7 @@ p {
     transition: 0.5s all ease-in-out;
 }
 
-.contact-btn button:hover{
+.contact-btn button:hover {
     background-color: #FB8925;
     color: #fff;
     transform: scale(1.1);
@@ -690,7 +686,7 @@ a {
     font-weight: 400;
 }
 
-.rooms h4{
+.rooms h4 {
     font-size: 27px;
     color: #6c757d;
     margin-bottom: 40px;
@@ -791,12 +787,12 @@ a {
     color: #FB8925;
 }
 
-.our-works-area::before {
+.works-title-area::before {
     content: "";
     position: absolute;
-    left: 0;
-    top: 33.7%;
-    width: 84%;
+    left: -30%;
+    bottom: 24%;
+    width: 130%;
     height: 13px;
     background-color: #025949; /* Turuncu Çizgi */
 }
@@ -814,19 +810,19 @@ a {
     background: #ffff;
 }
 
-.our-works-area::after {
+.works-title-area::after {
     content: "";
     position: absolute;
-    left: 0;
-    top: 34.9%;
-    width: 50%;
+    left: -30%;
+    bottom: 14%;
+    width: 100%;
     height: 13px;
     background-color: #FB8925; /* Yeşil Çizgi */
 }
 
 .card-footer {
     background-color: unset !important;
-    border:unset !important;
+    border: unset !important;
 }
 
 a {
@@ -903,7 +899,7 @@ a {
     font-size: 52px;
 }
 
-.works-content-area .content p{
+.works-content-area .content p {
     font-size: 18px;
     color: #6c757d;
 }
@@ -1190,7 +1186,7 @@ h2 {
 .footer {
     background-color: #FB8925;
     color: white;
-    padding-top: 45px;
+    padding-top: 100px;
     text-align: center;
     margin-top: 100px;
 }
@@ -1246,7 +1242,7 @@ h2 {
     font-size: 31px;
 }
 
-.footer-texts .fw-bold{
+.footer-texts .fw-bold {
     font-size: 31px;
 }
 
@@ -1297,7 +1293,8 @@ h2 {
     .banner-info-area {
         bottom: 15%;
     }
-    .slide-list-area li{
+
+    .slide-list-area li {
         width: 100%;
     }
 
@@ -1489,15 +1486,19 @@ h2 {
         color: #fff;
     }
 
-    .our-works-area::before {
-        display: none;
+    .works-title-area::before {
+        bottom: -2%;
     }
 
-    .our-works-area::after {
-        display: none;
+    .works-title-area::after {
+        bottom: -10%;
     }
 
     .our-works-area .works-title {
+        font-size: 66px !important;
+    }
+
+    .our-works-area .works-title span {
         font-size: 66px !important;
     }
 
@@ -1516,6 +1517,10 @@ h2 {
 
     .w-300 {
         width: 100%;
+    }
+
+    .py-120 {
+        padding: 80px 0;
     }
 
     .w-400 {
