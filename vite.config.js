@@ -25,11 +25,11 @@ export default defineConfig({
             input: ['resources/css/app.css', 'resources/js/app.js', 'resources/css/filament/admin/themes/piyetra.css'],
             refresh: true,
             detectTsl: host,
-            
+
             publicPath: "/public/",
         }),
 
     ],
-  
+
 
 });

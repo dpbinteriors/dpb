@@ -5,7 +5,7 @@
     <meta name="description"
           content="{{__('BLOG_INDEX_META_DESCRIPTION')}}">
     <meta name="keywords"
-          content="{{__('Alper Lojistik, Frigo Taşımacılık, Reefer Taşımacılık, Uluslararası Taşımacılık')}}">
+          content="{{__('blogindex, keywords')}}">
     <link rel="canonical" href="{{ url()->current() }}">
 
 
@@ -284,7 +284,7 @@
                                             <br>{{ ($article->created_at)->diffForHumans() }}</p>
                                     </div>
                                     <div class="col-md-7">
-                                        <img src="{{ asset('storage/' . $article->image_path) }}" alt="Living Room"
+                                        <img src="{{ asset('uploads/' . $article->image_path) }}" alt="Living Room"
                                              class="img-fluid">
                                     </div>
                                 </div>
@@ -328,7 +328,7 @@
                     <div class="col-md-4 mb-4">
                         <a href="{{ route('blog-detail', ['slug' => $article->slug]) }}" class="">
                             <div class="card works-card h-100">
-                                <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top"
+                                <img src="{{ asset('uploads/' . $article->image_path) }}" class="card-img-top"
                                      alt="Interior">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">

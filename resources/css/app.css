@@ -1,7 +1,7 @@
 @import url("utils/index.css");
 
 body {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Space Grotesk', sans-serif !important;
 }
 
 body, html {
@@ -19,6 +19,7 @@ body, html {
 .gap {
     padding: 80px 0px;
 }
+
 
 
 .hidden-desktop {
@@ -147,6 +148,7 @@ p {
     letter-spacing: -0.06em;
     font-weight: 300;
     text-decoration: none;
+    transition: .5s;
 }
 
 .commercial a {
@@ -163,6 +165,11 @@ p {
 .commercial a:hover {
     color: #FB8925;
     opacity: 1;
+}
+
+.residential a:hover {
+    color: #FB8925;
+    opacity: 1 !important;
 }
 
 
@@ -198,7 +205,7 @@ p {
     margin-left: 30px;
     white-space: nowrap;
     display: flex;
-    font-weight: 500;
+    font-weight: 400;
     align-items: center;
 }
 
@@ -497,10 +504,27 @@ textarea {
     background-color: #FB8925;
 }
 
+.packs .row div:nth-child(2) img {
+    margin-top: 10px;
+}
+.packs .row div:nth-child(3) img {
+    margin-top: -10px;
+}
+.packs .row div:nth-child(5) img {
+    margin-top: -12px;
+}
+
+
+.rooms-area > div:nth-child(1) .image-title
+
 .packs p {
     font-size: 18px;
     color: #444343;
-    font-weight: 500;
+    font-weight: 300;
+}
+
+.packs h4{
+    color: #444343;
 }
 
 
@@ -661,7 +685,7 @@ a {
 
 .content-box img {
     width: 100%;
-    height: 480px;
+    height: 555px;
     object-fit: cover;
 }
 
@@ -1228,22 +1252,24 @@ h2 {
 
 .footer-links a {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 300;
     line-height: 35px;
 }
 
 .footer-texts p {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 300;
     line-height: 35px;
 }
 
-.footer-links .fw-bold {
+.footer-links h5 {
     font-size: 31px;
+    font-weight: 400;
 }
 
-.footer-texts .fw-bold {
+.footer-texts h5 {
     font-size: 31px;
+    font-weight: 400;
 }
 
 
@@ -1539,6 +1565,10 @@ h2 {
         position: relative;
         width: 100%;
     }
+    .hidden-desktop {
+        display: block;
+    }
+
 }
 
 

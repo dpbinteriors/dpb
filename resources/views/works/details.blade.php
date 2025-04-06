@@ -11,14 +11,14 @@
 
     <meta property="og:title" content="{{$work->title}}">
     <meta property="og:description" content="{{strip_tags($work->description)}}">
-    <meta property="og:image" content="{{ asset('storage/' . $work->image_path) }}">
+    <meta property="og:image" content="{{ asset('uploads/' . $work->image_path) }}">
     <meta property="og:url" content="{{url()->current()}}">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{$work->title}}">
     <meta name="twitter:description" content="{{strip_tags($work->description)}}">
-    <meta name="twitter:image" content="{{ asset('storage/' . $work->image_path) }}">
+    <meta name="twitter:image" content="{{ asset('uploads/' . $work->image_path) }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 @endsection
@@ -26,7 +26,7 @@
 @section('content')
 
     <section class="breadcrumb-image works-detail position-relative text-center w-100 d-flex align-items-center"
-             style="background-image: url('{{ asset('storage/' . $work->image_path) }}');">
+             style="background-image: url('{{ asset('uploads/' . $work->image_path) }}');">
 
     </section>
 
@@ -60,8 +60,8 @@
                 @foreach ($work->gallery as $galleryImage)
                     <div class="col-md-4">
                         <div class="gallery-item">
-                            <a href="{{ asset('storage/' . $galleryImage) }}" data-lightbox="gallery">
-                                <img class="img-fluid rounded-0" src="{{ asset('storage/' . $galleryImage) }}"
+                            <a href="{{ asset('uploads/' . $galleryImage) }}" data-lightbox="gallery">
+                                <img class="img-fluid rounded-0" src="{{ asset('uploads/' . $galleryImage) }}"
                                      alt="Project Image">
                                 <div class="overlay">
                                     <i class="bi bi-zoom-in"></i>
@@ -84,7 +84,7 @@
                     <div class="col-md-4 pt-2">
                         <a href="{{ route('works-detail', ['slug' => $work->slug]) }}" class="">
                             <div class="card works-card h-100">
-                                <img src="{{ asset('storage/' . $work->image_path) }}" class="card-img-top" alt="Interior">
+                                <img src="{{ asset('uploads/' . $work->image_path) }}" class="card-img-top" alt="Interior">
                                 <div class="card-body">
                                     <p class="category">{{ $work->category->title }}</p>
                                     <h5 class="card-title">{{ $work->title }}</h5>

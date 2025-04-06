@@ -1,24 +1,24 @@
 @extends('layouts.app', ['headerClasses' => '', 'menuClasses' => '', 'isMobile' => true])
 
 @section('meta')
-    <title>{{__('BLOG_INDEX_PAGE_META_TITLE')}}</title>
+    <title>{{__('COMMERCIALMETA_TITLE')}}</title>
     <meta name="description"
-          content="{{__('BLOG_INDEX_META_DESCRIPTION')}}">
+          content="{{__('COMMERCIAL_DESCRIPTION')}}">
     <meta name="keywords"
-          content="{{__('Alper Lojistik, Frigo Taşımacılık, Reefer Taşımacılık, Uluslararası Taşımacılık')}}">
+          content="{{__('Commercial, keywords')}}">
     <link rel="canonical" href="{{ url()->current() }}">
 
 
-    <meta property="og:title" content="{{__('BLOG_INDEX_PAGE_META_TITLE')}}">
+    <meta property="og:title" content="{{__('COMMERCIAL_META_TITLE')}}">
     <meta property="og:description" content="{{__('BLOG_INDEX_META_DESCRIPTION')}}">
-    <meta property="og:image" content="{{Vite::asset('resources/images/og.png')}}">
+
     <meta property="og:url" content="{{url()->current()}}">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{__('BLOG_INDEX_PAGE_META_TITLE')}}">
-    <meta name="twitter:description" content="{{__('BLOG_INDEX_META_DESCRIPTION')}}">
-    <meta name="twitter:image" content="{{Vite::asset('resources/images/og.png')}}">
+    <meta name="twitter:title" content="{{__('COMMERCIAL_META_TITLE')}}">
+    <meta name="twitter:description" content="{{__('COMMERCIAL_META_DESCRIPTION')}}">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
@@ -55,6 +55,7 @@
             align-items: center;
             justify-content: space-evenly;
             gap: 30px;
+
         }
 
         /* Görsel içindeki başlık */
@@ -99,7 +100,7 @@
         .text-container {
             color: white;
             flex: 1;
-            max-width: 500px;
+            max-width: 80%;
         }
 
         .text-container h3 {
@@ -150,43 +151,85 @@
             font-size: 24px;
             font-weight: bold;
         }
-        .rooms-area > div:nth-child(4) .image-title{
+
+        .rooms-area > div:nth-child(4) .image-title {
             font-size: 26px;
         }
 
-        .slide-list-area li:not(.active){
+        .slide-list-area li:not(.active) {
             background-color: rgba(2, 89, 73, 0.11) !important;
         }
-        .slide-list-area li.active{
+
+        .slide-list-area li.active {
             color: #fff !important;
             background: linear-gradient(90deg, rgb(251, 137, 37) 37%, rgba(255, 255, 255, 1) 100%) !important;
 
         }
 
-        @media (max-width: 768px){
-            .carousel-item{
+        @media (max-width: 768px) {
+            .carousel-item {
                 display: block !important;
             }
-            .image-container-commercial{
+
+            .image-container-commercial {
                 margin-top: 0;
 
             }
-            .custom-commercial-section{
+
+            .custom-commercial-section {
                 padding-bottom: 50px;
                 margin-top: 0 !important;
             }
 
-            .custom-nav{
+            .custom-nav {
                 left: 0;
                 bottom: -8%;
                 max-width: 100%;
             }
-            .text-container{
+
+            .text-container {
                 padding: 20px;
             }
+
             .custom-section {
                 background: linear-gradient(360deg, rgb(2, 89, 73) 37%, rgba(255, 255, 255, 1) 100%) !important;
             }
+        }
+
+        .owl-carousel {
+            width: 70%;
+            min-height: 445px;
+        }
+
+        .carousel-container {
+            position: relative;
+
+        }
+
+        .commercial-slide .carousel-item {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            position: absolute;
+            width: 100%;
+        }
+
+        .commercial-slide .carousel-item.active {
+            opacity: 1;
+            position: relative;
+        }
+
+        /* Optional - you can add a fade effect */
+        .owl-carousel .owl-item {
+            transition: all 0.7s ease;
+        }
+
+        .packs-commercial img {
+            height: 80px;
+        }
+
+        .packs-commercial p {
+            font-size: 20px;
+            text-wrap: nowrap;
         }
     </style>
 @endsection
@@ -195,72 +238,62 @@
 @section('content')
 
     <section class="custom-commercial-section  ">
-        <div class="">
-            <div class="carousel-container">
-                <div class="owl-carousel commercial-slide">
-                    <div class="carousel-item active show">
-                        <div class="image-container-commercial ">
-                            <img class="" src="{{Vite::asset('resources/images/commercial.jpg')}}" alt="Project Image">
-                            <div class="image-text">Ellie's Nursery<br>Interior Design</div>
-                        </div>
-                        <div class="custom-nav">
-                            <button class="prev-slide"></button>
-                            <button class="next-slide"></button>
-                        </div>
-                        <div class="text-container">
-                            <h3>We transform spaces, elevate brands.</h3>
-                            <p>If you are looking for a fresh look to your brand, or building a new one, we accompany
-                                you with our holistic design services.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item ">
+        <div class="carousel-container flex-wrap d-flex align-items-center">
+            <div class="owl-carousel commercial-slide">
+
+                @foreach($slides as $slide)
+                    <div class="carousel-item {{ $loop->first ? 'active show' : '' }}">
                         <div class="image-container-commercial">
-                            <img src="{{Vite::asset('resources/images/residential.jpg')}}" alt="Project Image">
-                            <div class="image-text">Ellie's Nursery<br>Interior Design</div>
-                        </div>
-                        <div class="custom-nav">
-                            <button class="prev-slide"></button>
-                            <button class="next-slide"></button>
-                        </div>
-                        <div class="text-container">
-                            <h3>We transform spaces, elevate brands.</h3>
-                            <p>If you are looking for a fresh look to your brand, or building a new one, we accompany
-                                you with our holistic design services.</p>
+                            <img src="{{ asset('uploads/' . $slide->image) }}" alt="Project Image">
+                            <div class="image-text">
+                                {{ $slide->title }}<br>{{ $slide->description }}
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
+
+
+            </div>
+            <div class="custom-nav">
+                <button class="prev-slide"></button>
+                <button class="next-slide"></button>
+            </div>
+            <div class="text-container">
+                <h3>We transform spaces, elevate brands.</h3>
+                <p>If you are looking for a fresh look to your brand, or building a new one, we accompany
+                    you with our holistic design services.</p>
             </div>
         </div>
     </section>
 
-    <div class="packs mt-5 pt-2">
+    <div class="packs-commercial mt-5 pt-2">
         <div class="container px-1 px-xl-5 pb-2">
-
             <div class="row  mt-5 gx-5 text-center">
                 <div class="text-start">
-                    <h2 class="explore-text">Explore how <strong>Design Plan Build</strong> process works</h2>
+                    <h2 class="explore-text">{!! __('Explore how <strong>Design Plan Build</strong> process works') !!}</h2>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
-                    <img src="{{Vite::asset('resources/images/home-icon.svg')}}" alt="Survey Icon" class="mb-3">
-                    <h4 class="py-3">Detailed Survey of Your House</h4>
-                    <p>We measure your space with the little details, take notes for the areas to be fixed and
-                        designed.</p>
+                    <img src="{{Vite::asset('resources/images/interior-icon.png')}}" alt="Survey Icon" class="mb-3">
+                    <h4 class="fw-bold">Interior</h4>
+                    <p>Design</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
-                    <img src="{{Vite::asset('resources/images/home-icon-2.svg')}}" alt="AI Design Icon" class="mb-3">
-                    <h4 class="py-3">AI Supported Design Process</h4>
-                    <p>We make you decide by seeing various different options.</p>
+                    <img src="{{Vite::asset('resources/images/website-icon.png')}}" alt="AI Design Icon" class="mb-3">
+                    <h4 class="fw-bold">Brand </h4>
+                    <p>{!! __('Consultation / Strategy / Design') !!}</p>
+
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
-                    <img src="{{Vite::asset('resources/images/home-icon-3.svg')}}" alt="3D Animation Icon" class="mb-3">
-                    <h4 class="py-3">3D Animation & Detail Drawings</h4>
-                    <p>We invite you to your space digitally. After you watch the tour video, you will receive the
-                        details.</p>
+                    <img src="{{Vite::asset('resources/images/branding-icon.png')}}" alt="3D Animation Icon"
+                         class="mb-3">
+                    <h4 class="fw-bold">{!! __('Graphic') !!}</h4>
+                    <p>{!! __('Design') !!}</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
-                    <img src="{{Vite::asset('resources/images/home-icon-4.svg')}}" alt="Construction Icon" class="mb-3">
-                    <h4 class="py-3">Construction & Installation</h4>
-                    <p>Our construction team provides transparent & clean construction process.</p>
+                    <img src="{{Vite::asset('resources/images/website-icon.png')}}" alt="Construction Icon"
+                         class="mb-3">
+                    <h4 class="fw-bold">Website</h4>
+                    <p>{!! __('Design') !!}</p>
                 </div>
             </div>
 
@@ -271,7 +304,7 @@
         <div class="container overflow-visible ">
             <div class="row gx-5 py-3">
                 <div class="col-lg-7 col-12">
-                    <div class="content-box mb-lg-0 mb-4">
+                    <div class="content-box  mb-lg-0 mb-4" style="max-width: 110%; margin-left: -5%;">
                         <img src="{{Vite::asset('resources/images/about-img.jpg')}}" alt="Animated GIF">
                     </div>
                 </div>
@@ -314,34 +347,34 @@
 
     <div class="container text-center  py-4">
         <p class="intro-text text-start">
-            We are quite flexible on adapting on your preferences, new challenges are more than welcomed.<br>
-            Classic, industrial, minimalist, mediterranean and more.
+            {!! __('We are quite flexible on adapting on your preferences, new challenges are more than welcomed.<br>
+            Classic, industrial, minimalist, mediterranean and more.') !!}
         </p>
-        <h2 style="color: #6c757d" class="text-start">Check some of our scenes from our latest projects until we finish
-            our 'works' section.</h2>
+        <h2 style="color: #6c757d"
+            class="text-start">{!! __("Check some of our scenes from our latest projects until we finish our 'works' section.") !!}</h2>
         <div class="d-flex rooms-area flex-lg-nowrap flex-wrap">
             <div class="w-300">
                 <div class="image-container">
                     <img src="{{Vite::asset('resources/images/project-1.jpg')}}" alt="Living Room">
-                    <div class="image-title title-green">RETAIL</div>
+                    <div class="image-title title-green">{!! __('RETAIL') !!}</div>
                 </div>
             </div>
             <div class="w-400">
                 <div class="image-container">
                     <img src="{{Vite::asset('resources/images/project-2.jpg')}}" alt="Kitchen">
-                    <div class="image-title title-orange">OFFICE</div>
+                    <div class="image-title title-orange">{!! __('OFFICE') !!}</div>
                 </div>
             </div>
             <div class="w-310">
                 <div class="image-container">
                     <img src="{{Vite::asset('resources/images/project-3.jpg')}}" alt="Bedroom">
-                    <div class="image-title title-green">HOSPITALITY</div>
+                    <div class="image-title title-green">{!! __('HOSPITALITY') !!}</div>
                 </div>
             </div>
             <div class="w-300">
                 <div class="image-container">
                     <img src="{{Vite::asset('resources/images/project-4.jpg')}}" alt="Bathroom">
-                    <div class="image-title title-orange">EDUCATIONAL</div>
+                    <div class="image-title title-orange">{!! __('EDUCATIONAL') !!}</div>
                 </div>
             </div>
         </div>
@@ -351,13 +384,14 @@
 
     <div class="container my-5">
         <div class="row  text-center">
-            <h2 class="contact-title mb-4 pb-3">Contact us<span class="contact-subtitle">for free consultation</span>
+            <h2 class="contact-title mb-4 pb-3">{!! __('Contact us<span class="contact-subtitle">for free consultation') !!}</span>
             </h2>
             <div class="col-lg-6 ">
-                <p class="text-start fw-medium contact-desc">We are always excited to talk about a new project. If you have the
+                <p class="text-start fw-medium contact-desc">{!! __('We are always excited to talk about a new project. If you
+                    have the
                     pictures of your
                     rooms with you,
-                    we can even start to talk about the design ideas at our first online meeting.</p>
+                    we can even start to talk about the design ideas at our first online meeting.') !!}</p>
             </div>
 
             <div class="col-lg-5 offset-lg-1">
@@ -377,7 +411,7 @@
                             <label class="form-label text-start">Email</label>
                             <input type="email" class="form-control" placeholder="">
                         </div>
-                        <div class="message-container mb-4">
+                        <div class="message-container text-start mb-4">
                             <label for="messageInput">Message</label>
                             <div class="input-wrapper">
                                 <textarea id="messageInput" name="message"></textarea>

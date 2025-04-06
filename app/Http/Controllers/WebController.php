@@ -69,11 +69,12 @@ class WebController extends BaseController
         SEOTools::webPage(__('Dpb Interior - Ana Sayfa'), __('Our company, which started its commercial activities in 1985, aimed to develop and expand in other sectors by adopting a successful working principle in the future. With its years of experience in the spare parts sector, it works with the aim of providing the best service to its customers in a way that dominates the needs of the market.'));
 
         $works = Works::published()->orderBy('order', 'asc')->get();
+        $slides = Slide::published()->orderBy('position', 'asc')->get();
 
         $articles = Article::published()
             ->orderBy('position', 'asc')
             ->get();
-        return view('commercial', compact('works','articles'));
+        return view('commercial', compact('works','articles','slides'));
     }
 
     public function aboutUs(): View

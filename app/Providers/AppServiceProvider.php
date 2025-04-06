@@ -82,7 +82,7 @@ class AppServiceProvider extends ServiceProvider
         // If social media link table exist
 
 
-        View::composer(['includes._header', 'includes._footer'], function ($view) {
+        View::composer(['includes._header', 'includes._footer','contact'], function ($view) {
             if (Schema::hasTable('social_media_links')) {
                 $socialMediaLinks = SocialMediaLink::all();
                 $view->with('socialMediaLinks', $socialMediaLinks);

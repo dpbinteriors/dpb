@@ -92,18 +92,22 @@
         border-bottom: 4px solid #025949;
         padding-top: 10px;
         margin-bottom: 40px;
+        box-shadow: 0 4px 6px 1px rgba(0, 0, 0, 0.4);
+
     }
 
     .title .orange{
         font-size: 90px;
         margin-bottom: -25px;
         color: #FB8925;
+        letter-spacing: -5px;
     }
 
     .title .green{
         font-size: 90px;
         margin-bottom: -25px;
         color: #025949;
+        letter-spacing: -5px;
     }
 
     .title.orange{
@@ -118,6 +122,10 @@
     .section a:hover .title.green{
         background-color: #FB8925;
         color: #025949;
+    }
+
+    .logo{
+        width: 250px;
     }
 
     @media (max-width: 1400px) {
@@ -162,6 +170,7 @@
             background: white;
             text-align: center;
             z-index: 10;
+
         }
 
 
@@ -199,20 +208,20 @@
 <div class="container-fluid">
     <div class="section">
         <a href="{{ route('residential') }}" class="orange">
-            <img src="{{Vite::asset('resources/images/residential.jpg')}}" alt="Residential">
+            <img  src="{{Vite::asset('resources/images/residential.jpg')}}" alt="Residential">
             <div class="overlay"></div>
             <div class="title orange">
-                <h2 class="orange">{!! __('Residential') !!}</h2>
+                <h2 class="orange fw-normal">{!! __('Residential') !!}</h2>
             </div>
         </a>
     </div>
-    <div class="logo"><img src="{{Vite::asset('resources/images/logo.svg')}}" alt=""></div>
+    <div class="logo text-center" ><img src="{{Vite::asset('resources/images/logo.svg')}}" alt=""></div>
     <div class="section">
         <a href="{{route('commercial')}}">
-            <img src="{{Vite::asset('resources/images/commercial.jpg')}}" alt="Commercial">
+            <img  src="{{Vite::asset('resources/images/commercial.png')}}" alt="Commercial">
             <div class="overlay"></div>
             <div class="title green text-end">
-                <h2 class="green">{!! __('Commercial') !!}</h2>
+                <h2 class="green fw-normal">{!! __('Commercial') !!}</h2>
             </div>
         </a>
     </div>

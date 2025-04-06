@@ -1,77 +1,68 @@
-<div>
-    <section class="our-works-area py-120">
-        <div class="container position-relative">
-            <div class="d-flex justify-content-between flex-wrap align-items-center works-title-area position-relative">
-                <div class="text-start flex-1">
-                    <p class="works-title">Our <span>Works</span></p>
-
-                </div>
-                <ul class="d-flex gap-4">
+<section class="our-works-area py-120">
+    <div class="container position-relative">
+        <div class="d-flex justify-content-between flex-wrap align-items-center works-title-area position-relative mb-4">
+            <div class="text-start flex-1">
+                <p class="works-title">Our <span>Works</span></p>
+            </div>
+            <ul class="d-flex gap-3 list-unstyled" id="categoryFilter">
+                <li><a class="  filter-btn active" data-filter="all">All Projects</a></li>
+                @foreach($worksCategories as $cat)
                     <li>
-                        <a wire:click="filterCategory('all')"
-                                class="{{ $category === 'all' ? 'active' : '' }}">
-                            All Projects
+                        <a class="  filter-btn" data-filter="{{ $cat->id }}">
+                            {{ $cat->title }}
                         </a>
                     </li>
-                    @foreach($worksCategories as $cat)
-                        <li>
-                            <a wire:click="filterCategory('{{ $cat->id }}')"
-                                    class="{{ $category == $cat->id ? 'active' : '' }}">
-                                {{ $cat->title }}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-
-
-
-            <div class="row mt-5 pt-5">
-                @if($works->count() > 0)
-                    @foreach($works as $work)
-                        <div wire:key="work-{{ $work->id }}" class="col-md-4 mb-4">
-                            <a href="{{ route('works-detail', ['slug' => $work->slug]) }}" class="">
-                                <div class="card works-card h-100">
-                                    <img src="{{ asset('storage/' . $work->image_path) }}" class="card-img-top" alt="Interior">
-                                    <div class="card-body">
-                                        <p class="category">{{ $work->category->title }}</p>
-                                        <h5 class="card-title">{{ $work->title }}</h5>
-                                        <p class="card-text">{{ $work->caption }}</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <span class="style">{{ $work->style }}</span>
-                                        <span class="type">{{$work->tag}}</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                @else
-                    <div class="col-12">
-                        <div class="alert alert-warning">
-                            No works found for this category.
-                        </div>
-                    </div>
-                @endif
-            </div>
-
-            <div class="mt-5">
-                {{ $works->links() }}
-            </div>
+                @endforeach
+            </ul>
         </div>
-    </section>
 
-    @push('scripts')
-        <script>
-            document.addEventListener('livewire:initialized', function () {
-                console.log('Livewire initialized');
+        <div class="row mt-4" id="worksContainer">
+            @foreach($works as $work)
+                <div class="col-md-4 mb-4 work-item" data-category="{{ $work->category->id }}">
+                    <a href="{{ route('works-detail', ['slug' => $work->slug]) }}">
+                        <div class="card works-card h-100">
+                            <img src="{{ asset('uploads/' . $work->image_path) }}" class="card-img-top" alt="Interior">
+                            <div class="card-body">
+                                <p class="category">{{ $work->category->title }}</p>
+                                <h5 class="card-title">{{ $work->title }}</h5>
+                                <p class="card-text">{{ $work->caption }}</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="style">{{ $work->style }}</span>
+                                <span class="type">{{ $work->tag }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".filter-btn");
+        const items = document.querySelectorAll(".work-item");
+
+        buttons.forEach(btn => {
+            btn.addEventListener("click", function () {
+                // Aktif butonu güncelle
+                buttons.forEach(b => b.classList.remove("active"));
+                this.classList.add("active");
+
+                const filterValue = this.getAttribute("data-filter");
+
+                items.forEach(item => {
+                    const itemCategory = item.getAttribute("data-category");
+
+                    if (filterValue === "all" || itemCategory === filterValue) {
+                        item.style.display = "block";
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
             });
-
-            document.addEventListener('livewire:navigated', function () {
-                console.log('Livewire component updated');
-            });
-        </script>
-        @livewireScripts
-
-    @endpush
-</div>
+        });
+    });
+</script>

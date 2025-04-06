@@ -67,21 +67,15 @@ class SlideResource extends Resource
 
 
                         TextInput::make('title')
-                            ->columnSpan(12)
+                            ->columnSpan(6)
                             ->translateLabel()
                             ->label(__('panel.title')),
 
-                        Textarea::make('description')
-                            ->label(__('panel.description'))
-                            ->columnSpan(12),
-
-                        TextInput::make('button_text')
-                            ->label(__('panel.button_text'))
+                        TextInput::make('description')
+                            ->label(__('panel.tag'))
                             ->columnSpan(6),
 
-                        TextInput::make('button_url')
-                            ->label(__('panel.button_url'))
-                            ->columnSpan(6),
+
                     ])->columns(12)->columnSpan(8),
                 Section::make(__("panel.publish_settings"))
                     ->schema([

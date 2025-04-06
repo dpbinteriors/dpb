@@ -24,16 +24,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-
-    {{-- Livewire Styles --}}
-    @livewireStyles
+    <link rel="stylesheet" href="../../css/app.css"
+          {{-- Livewire Styles --}}
+          @livewireStyles
 
     {{-- Google Analytics Script --}}
     <script>
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
+
         gtag('js', new Date());
         gtag('config', '{{ env('GOOGLE_SITE_TAG') }}');
     </script>
@@ -44,7 +46,8 @@
     {{-- Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
 
     {!! SEO::generate(true) !!}
 
@@ -98,7 +101,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         var owl = $(".owl-carousel");
 
         owl.owlCarousel({
@@ -109,18 +112,18 @@
             items: 1
         });
 
-        $(".next-slide").click(function() {
+        $(".next-slide").click(function () {
             owl.trigger("next.owl.carousel");
             updateIndicators(1);
         });
 
-        $(".prev-slide").click(function() {
+        $(".prev-slide").click(function () {
             owl.trigger("prev.owl.carousel");
             updateIndicators(-1);
         });
 
         // El ile kaydırma sonrası çalışacak event listener
-        owl.on("translated.owl.carousel", function(event) {
+        owl.on("translated.owl.carousel", function (event) {
             updateIndicatorsByOwl(event);
         });
 
@@ -155,7 +158,7 @@
 
 </script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         let items = $(".slide-list-area li");
 
         function updateSlide(index) {
@@ -172,53 +175,68 @@
             currentItem.addClass("active");
 
             // **Aşağı kayma efekti (animasyonlu)**
-            $(".slide-list-area").animate({ scrollTop: currentItem.position().top }, 500);
+            $(".slide-list-area").animate({scrollTop: currentItem.position().top}, 500);
         }
 
         // Liste öğelerine tıklanınca geçiş yap
-        $(".slide-list-area li").click(function() {
+        $(".slide-list-area li").click(function () {
             let index = $(this).index();
             updateSlide(index);
         });
 
         // Otomatik geçiş (her 3 saniyede bir)
-        setInterval(function() {
+        setInterval(function () {
             let nextIndex = ($(".slide-list-area li.active").index() + 1) % items.length;
             updateSlide(nextIndex);
-        }, 4000);
+        }, 10000);
     });
 </script>
-
-
 
 <script>
-    $(document).ready(function(){
-        var owl = $(".commercial-slide");
-
-        owl.owlCarousel({
+    $(document).ready(function () {
+        // Owl Carousel'ı başlat
+        var owl = $('.commercial-slide').owlCarousel({
+            items: 1,
             loop: true,
-            margin: 10,
+            margin: 0,
             nav: false,
             dots: false,
-            items: 1,
-            animateOut: 'fadeOut',
+            autoplay: true,
+            autoplayTimeout: 5000,
+            smartSpeed: 800,
             animateIn: 'fadeIn',
-            smartSpeed: 800 // Geçiş hızını yumuşatma
+            animateOut: 'fadeOut',
+            // Başlangıçta active show sınıflarını kaldır
+            onInitialized: function () {
+                $('.carousel-item').removeClass('active show');
+                // İlk öğeyi aktif yap
+                $('.owl-item.active').find('.carousel-item').addClass('active show');
+            }
         });
 
-        $(".next-slide").click(function() {
-            owl.trigger("next.owl.carousel");
+        // Slayt değiştikçe active show sınıflarını güncelle
+        owl.on('changed.owl.carousel', function (event) {
+            // Tüm slaytlardan active show sınıflarını kaldır
+            $('.carousel-item').removeClass('active show');
+
+            // Sadece aktif slayta active show sınıflarını ekle
+            setTimeout(function () {
+                $('.owl-item.active').find('.carousel-item').addClass('active show');
+            }, 100);
         });
 
-        $(".prev-slide").click(function() {
-            owl.trigger("prev.owl.carousel");
+        // Özel navigasyon düğmeleri
+        $('.next-slide').click(function () {
+            owl.trigger('next.owl.carousel');
+        });
+
+        $('.prev-slide').click(function () {
+            owl.trigger('prev.owl.carousel');
         });
     });
-
-
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-
+<script src="../../js/app.js"></script>
 <!-- Layout'unuzun en altında -->
 
 
