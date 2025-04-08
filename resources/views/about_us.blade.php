@@ -1,171 +1,286 @@
 @extends('layouts.app', ['headerClasses' => 'bg-transparent border-t border-t-[3px] border-yellow-500', 'menuClasses' => '!bg-gray-25'])
 
 @section('meta')
+
+    <title>{{__('ABOUT_US_PAGE_META_TITLE')}}</title>
+    <meta name="description"
+          content="{{__('ABOUT_US_PAGE_META_DESCRIPTION')}}">
+    <meta name="keywords"
+          content="{{__('dpbinteriorabout, aboutkeywords')}}">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+
+    <meta property="og:title" content="{{__('ABOUT_US_PAGE_META_TITLE')}}">
+    <meta property="og:description" content="{{__('ABOUT_US_PAGE_META_DESCRIPTION')}}">
+
+    <meta property="og:url" content="{{url()->current()}}">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{__('ABOUT_US_PAGE_META_TITLE')}}">
+    <meta name="twitter:description" content="{{__('ABOUT_US_PAGE_META_DESCRIPTION')}}">
+
+
+    <style>
+        .breadcrumb-area-bg {
+            position: relative;
+            background-image: url({{Vite::asset('resources/images/works-1.jpg')}});
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .breadcrumb-area-bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.6); /* Siyah ve %60 opaklık */
+            z-index: 2;
+        }
+
+        .breadcrumb-area-bg .bread-crumb-area-inner {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 150px 0;
+        }
+
+        @media (max-width: 991px) {
+            .breadcrumb-area-bg .bread-crumb-area-inner {
+                padding: 130px 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .breadcrumb-area-bg .bread-crumb-area-inner {
+                padding: 100px 0;
+            }
+        }
+
+        .breadcrumb-area-bg .bread-crumb-area-inner .breadcrumb-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .breadcrumb-area-bg .bread-crumb-area-inner .breadcrumb-top a {
+            color: #fff;
+        }
+
+        .breadcrumb-area-bg .bread-crumb-area-inner .breadcrumb-top a.active {
+            color: #ffffff;
+        }
+
+        .breadcrumb-area-bg .bread-crumb-area-inner .bottom-title .title {
+            color: #fff;
+            text-align: center;
+            font-size: 60px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 70px;
+            text-transform: capitalize;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 767px) {
+            .breadcrumb-area-bg .bread-crumb-area-inner .bottom-title .title {
+                font-size: 26px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 35px;
+            }
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        /* Görsel hover efekti */
+        .about-image-wrapper:hover .about-image {
+            transform: scale(1.05);
+        }
+
+        /* Shine efekti */
+
+        .about-image-wrapper::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 100%; /* 👈 Daha ince bir genişlik */
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                rgba(251, 137, 37, 0) 0%, /* Turuncu - şeffaf */ rgba(251, 137, 37, 0.6) 30%, /* Turuncu - parlak */ rgba(2, 89, 73, 0.6) 70%, /* Yeşil - parlak */ rgba(2, 89, 73, 0) 100% /* Yeşil - şeffaf */
+            );
+            transform: skewX(-25deg);
+            z-index: 2;
+            pointer-events: none;
+            color: #025949;
+        }
+
+        .about-image-wrapper:hover::before {
+            animation: shine 1s ease-in-out forwards;
+        }
+
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 150%;
+            }
+        }
+
+
+    </style>
 @endsection
 @section('content')
-    <section class="about-image">
-        <img src="{{ Vite::asset('resources/images/about-img.jpg') }}" class="w-full h-full lg:h-[650px] object-cover"
-            alt="{!! __('About Us') !!}">
-    </section>
 
-    <section class="bg-dark-500 container">
-        <div class="container-2 py-[80px] md:py-[175px] gap-[45px] justify-between text-white flex flex-col lg:flex-row">
-            <h2 class="text-[24px] md:text-[40px] font-[600]">
-                {!! __('Hakkımızda') !!}
-            </h2>
-            <p class="text-[24px] md:text-[40px] max-w-[810px]">
-                {!! __('Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.') !!}
-                <span class="text-blue-500 text-[24px] md:text-[40px]">
-                    {!! __('Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy') !!}
-                </span>
-            </p>
+    <div class="breadcrumb-area-bg bg_image">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bread-crumb-area-inner">
+                        <div class="breadcrumb-top">
+                            <a href="#">Home </a> <span class="text-white px-2"> / </span>
+                            <a class="active" href="#"> About</a>
+                        </div>
+                        <div class="bottom-title">
+                            <h1 class="title">About Us</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
 
-    {{--    <section class="about-content bg-dark-500 w-full lg:p-0 lg:pb-120 container h-full flex items-center py-[]"> --}}
-    {{--        <div --}}
-    {{--            class="flex flex-col lg:my-0 my-10 md:flex-row items-start md:items-center  container-2   w-full h-auto md:h-[500px] text-white p-6 "> --}}
-    {{--            <div class="w-full  mb-6 md:mb-0"> --}}
-    {{--                <h2 class="text-3xl md:text-4xl font-bold  text-left">{!! __('Hakkımızda') !!}</h2> --}}
-    {{--            </div> --}}
-
-    {{--            <div class="w-full  text-base md:text-lg leading-relaxed"> --}}
-    {{--                <p class="text-[20px] md:text-[32px] leading-[28px] md:leading-[40px] text-white font-normal  md:text-left"> --}}
-    {{--                    {!! __('    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.') !!} --}}
-    {{--                    <span class="text-blue-500 text-[20px] md:text-[32px]"> --}}
-    {{--                        {!! __('Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy') !!} --}}
-    {{--                    </span> --}}
-    {{--                </p> --}}
-    {{--            </div> --}}
-    {{--        </div> --}}
-    {{--    </section> --}}
 
     <section class="container py-120">
-        <div class="container-2 flex flex-wrap flex-col md:flex-row items-center justify-between">
-            <div class="w-full lg:w-[60%] space-y-6">
-                <h2
-                    class="text-dark-200 mb-10 lg:pb-80 text-[32px] lg:max-w-[50%]  max-w-full  font-semibold leading-[40px]">
-                    {!! __('Yollarda geçen 80 yılı aşkın tecrübemizle, müşterilerimize güvenilir ve kaliteli çözümler sunuyoruz.') !!}
+        <div class="row align-items-center">
+            <!-- Görsel Alanı -->
+            <div class="col-md-6 mb-4 mb-md-0">
+                <div class="about-image-wrapper">
+                    <img src="{{Vite::asset('resources/images/residential.jpg')}}" alt="Mimarlık Görseli"
+                         class="about-image">
+                </div>
+            </div>
 
-                </h2>
-                <p class="text-[16px] leading-6  text-dark-400 lg:max-w-[50%] max-w-full">
-
-                    {!! __("İlk Volvo kamyon 1928'de üretilmiştir. O tarihten beri büyüyerek Avrupa'nın en büyük ağır kamyon üreticisi olduk. Güvenilirliğimizle ünlüyüz. Kalite, güvenlik ve çevreye saygı bu ürünün dayandığı üç temel değerimizdir.Tüm faaliyetlerimizde bu temel değerlerimizi hayata geçiriyoruz.") !!}
+            <!-- Metin Alanı -->
+            <div class="col-md-6">
+                <h2 class="mb-3">{!! __('Where Aesthetics and Functionality Meet in Architecture') !!}</h2>
+                <p class="text-muted mb-4">
+                    {!! __('With years of experience in the field, we are an innovative architectural studio dedicated to transforming your dreams into reality. Our team of passionate professionals works tirelessly to bring your vision to life, combining cutting-edge modern design lines with timeless aesthetics and seamless functionality. We believe in creating spaces that not only meet your needs but also inspire and elevate your everyday experiences.') !!}
                 </p>
-            </div>
 
-            <div class="w-full lg:w-[40%] mt-8 md:mt-0">
-                <div class="rounded-lg overflow-hidden">
-                    <img src="{{ Vite::asset('resources/images/contact-bg.jpg') }}"
-                        class="lg:w-[530px] mt-10 lg:mt-0 lg:h-[500px] object-cover object-right" alt="">
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <section class="bg-gray-200 container flex items-center justify-center ">
-        <div class="flex container-2   py-80  flex-col lg:flex-row  justify-between  w-full items-start lg:gap-[130px]">
-
-            <div class="flex-1">
-                <h2 class="text-gray-40 text-[16px] leading-[20px] font-semibold pb-6 ">{!! __('Çekirdeğimiz') !!}</h2>
-                <p class="text-dark-200  text-[28px] leading-[36px] font-semibold pb-10 lg:pb-0">
-                    {!! __('About 3.1') !!}
-                </p>
-            </div>
-
-            <div class="flex-1 flex flex-col gap-8 ">
-
-                <div class="pb-6 lg:pb-10">
-                    <h3 class="text-dark-100 text-[24px] leading-[24px] font-semibold">
-                        {!! __('About 3.1.1') !!}
-                    </h3>
-                    <p class="text-dark-300 text-sm leadin-5 font-normal pt-6">
-                        {!! __('About 3.1.2') !!}
-                    </p>
-                </div>
-
-                <div class="pb-6 lg:pb-10">
-                    <h3 class="text-dark-100 text-[24px] leading-[24px] font-semibold">
-                        {!! __('About 3.2.1') !!}
-                    </h3>
-                    <p class="text-dark-300 text-sm leadin-5 font-normal pt-6">
-                        {!! __('About 3.2.2') !!}
-                    </p>
-                </div>
-                <div class="pb-6 lg:pb-10">
-                    <h3 class="text-dark-100 text-[24px] leading-[24px] font-semibold">
-                        {!! __('About 3.3.1') !!}
-                    </h3>
-                    <p class="text-dark-300 text-sm leadin-5 font-normal pt-6">
-                        {!! __('About 3.3.2') !!}
-                    </p>
+                <div class="row">
+                    <div class="col-12 col-sm-4 mb-3">
+                        <div class="d-flex align-items-start">
+                            <i class="bi bi-brush fs-3 text-primary me-3"></i>
+                            <div>
+                                <h6 class="mb-1">Yaratıcılık</h6>
+                                <small class="text-muted">Her projeye özgün bir bakış açısı.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-4 mb-3">
+                        <div class="d-flex align-items-start">
+                            <i class="bi bi-shield-check fs-3 text-success me-3"></i>
+                            <div>
+                                <h6 class="mb-1">Güvenilirlik</h6>
+                                <small class="text-muted">Zamanında ve kaliteli teslimat.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-4 mb-3">
+                        <div class="d-flex align-items-start">
+                            <i class="bi bi-tree fs-3 text-warning me-3"></i>
+                            <div>
+                                <h6 class="mb-1">Sürdürülebilirlik</h6>
+                                <small class="text-muted">Doğaya saygılı çözümler.</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container  py-80 lg:py-140 ">
-        <div class=" container-2 ">
-            <div class="text-start mb-12">
-                <h2 class="text-blue-500 text-[16px] font-semibold pb-[30px]">{!! __('Kazaların önlenmesi') !!}</h2>
-                <p class="text-dark-200 text-[28px] font-semibold leading-[36px] pb-10 font-titillium">
-                    {!! __(" Aktif güvenlik girişimlerimiz, trafik kazalarının yaklaşık %90'ına sebep olan hataları önlemek için tasarlanıyor. Bu nedenle sürücülerimizin daha iyi bir görüş elde etmesine yardımcı oluyoruz. Rahatlarını ve konsantrasyonlarını koruyoruz. Ayrıca, kamyonlarımızı güvenliği bir üst seviyeye taşıyan sistemler ve teknolojilerledonatıyoruz.") !!}
-                </p>
+
+    <div class="packs-commercial mt-5 pt-2">
+        <div class="container px-1 px-xl-5 pb-2">
+            <div class="row  mt-5 gx-5 text-center">
+                <div class="text-start">
+                    <h2 class="explore-text">{!! __('Explore how <strong>Design Plan Build</strong> process works') !!}</h2>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 my-5">
+                    <img src="{{Vite::asset('resources/images/interior-icon.png')}}" alt="Survey Icon" class="mb-3">
+                    <h4 class="fw-bold">Interior</h4>
+                    <p>Design</p>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 my-5">
+                    <img src="{{Vite::asset('resources/images/website-icon.png')}}" alt="AI Design Icon" class="mb-3">
+                    <h4 class="fw-bold">Brand </h4>
+                    <p>{!! __('Consultation / Strategy / Design') !!}</p>
+
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 my-5">
+                    <img src="{{Vite::asset('resources/images/branding-icon.png')}}" alt="3D Animation Icon"
+                         class="mb-3">
+                    <h4 class="fw-bold">{!! __('Graphic') !!}</h4>
+                    <p>{!! __('Design') !!}</p>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 my-5">
+                    <img src="{{Vite::asset('resources/images/website-icon.png')}}" alt="Construction Icon"
+                         class="mb-3">
+                    <h4 class="fw-bold">Website</h4>
+                    <p>{!! __('Design') !!}</p>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="flex flex-col items-start text-start">
-                    <img src="{{ Vite::asset('resources/images/icons/why-choose-truck.svg') }}" class="w-[45px] h-[45px] "
-                        alt="">
-                    <h3 class="py-[15px] text-dark-200 text-[24px] font-semibold leading-[24px]">{!! __('Size en uygun Volvo Trucks') !!}
-                    </h3>
-                    <p class="text-gray-500 text-[16px] leading-[24px] lg:max-w-md max-w-full">
-                        {!! __('Size en uygun Volvo Trucks modelleriyle iş gücünüzü güçlendirin.') !!}
-                    </p>
+        </div>
+    </div>
+
+
+    <section class="team-section mt-5 pt-5">
+        <div class="container">
+            <div class="section-heading text-center mb-40">
+                <span>Our Team</span>
+                <h2>Speciallized team</h2>
+            </div><!--/.section-heading-->
+            <div class="row team-wrap">
+                <div class="col-lg-3 col-sm-6 padding-15">
+                    <div class="team-item">
+                        <div class="overlay"></div>
+                        <img src="https://html.dynamiclayers.net/dl/arkit/img/team-1.jpg" alt="team">
+                        <div class="team-content">
+                            <h3>Jhon Castellon</h3>
+                            <span>Architect</span>
+                        </div>
+                        <ul class="team-social">
+                            <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                            <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+                            <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                            <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="flex flex-col items-start text-start">
-                    <img src="{{ Vite::asset('resources/images/icons/security.svg') }}" class="w-[45px] h-[45px] "
-                        alt="">
-
-                    <h3 class="py-[15px] text-dark-200 text-[24px] font-semibold leading-[24px]">{!! __('Orijinal yedek parçalar') !!}
-                    </h3>
-                    <p class="text-gray-500 text-[16px] leading-[24px] lg:max-w-md max-w-full">
-                        {!! __('Araçlarınızın dayanıklılığını artıran orijinal yedek parçalar sunuyoruz.') !!}
-                    </p>
-                </div>
-
-                <div class="flex flex-col items-start text-start">
-                    <img src="{{ Vite::asset('resources/images/icons/why-choose-tool.svg') }}" class="w-[45px] h-[45px] "
-                        alt="">
-
-                    <h3 class="py-[15px] text-dark-200 text-[24px] font-semibold leading-[24px]">{!! __('Hızlı, Güvenilir Servis') !!}
-                    </h3>
-                    <p class="text-gray-500 text-[16px] leading-[24px] lg:max-w-md max-w-full">
-                        {!! __('Hızlı, Güvenilir Servis Profesyonel bakım ve onarım hizmetleri sunuyoruz.') !!}
-                    </p>
-                </div>
             </div>
         </div>
     </section>
 
-    <section class="lg:pt-80">
-        <div class="relative h-[85vh] lg:h-screen bg-cover bg-center border-image-gradient-bottom"
-            style="background-image: url('{{ Vite::asset('resources/images/about-bottom-image.jpg') }}');">
-            <div class="absolute inset-0 flex items-center container  px-4 lg:px-[80px] ">
-                <div class="max-w-3xl text-white">
-                    <h1 class="md:text-[48px] text-[36px] pb-[40px] font-semibold leading-[52px] max-w-full lg:max-w-xl">
-                        {!! __('Yarınlara yol alırken, sürdürülebilirliği daima rotamızda tutuyoruz.') !!}
-                    </h1>
-                    <p class="text-[16px] text-[#A6E53E] font-500 leading-6 ">
-                        {!! __("Çevresel sorumluluk, işimizin ayrılmaz bir parçasıdır. 70'lerden bu yana, sürdürülebilir ulaşım çözümlerinin önemine inanıyor ve bu doğrultuda çalışmalarımıza yön veriyoruz. Araçlarımızın satış ve servis süreçlerinde çevreye duyarlı performansları destekleyerek, daha temiz bir gelecek için adımlar atıyoruz. Biz, sürdürülebilirliğin her yolculuğun vazgeçilmez bir parçası olduğuna inanıyoruz.") !!}
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </section>
 @endsection
 @section('scripts')
 @endsection

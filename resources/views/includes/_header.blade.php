@@ -51,9 +51,9 @@
                         </a>
                         <a href="{{route('works-index')}}" class="nav-item">Works</a>
                         <a href="{{route('blog')}}" class="nav-item">Blog</a>
-                        <a href="#" class="nav-item">About</a>
+                        <a href="{{route('about-us')}}" class="nav-item">About</a>
                         <a href="{{'contact'}}" class="nav-item">Contact us</a>
-                        <a href="#" class="nav-item">Careers</a>
+                        <a href="{{route('human-resources')}}" class="nav-item">Careers</a>
                         @foreach ($socialMediaLinks as $socialMediaLink)
                             <a href="{{ $socialMediaLink->url }}" target="_blank" class="nav-item mb-1" title="{{ $socialMediaLink->title }}">
                                 <img style="height: 20px; object-fit: cover" src="{{ asset('uploads/' . $socialMediaLink->image_path) }}"

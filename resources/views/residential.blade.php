@@ -87,18 +87,18 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
                     <img src="{{Vite::asset('resources/images/home-icon-2.svg')}}" alt="AI Design Icon" class="mb-3">
-                    <h4 class="py-3 fw-medium">{!! __('AI Supported Design Process') !!}</h4>
+                    <h4 class="py-3 mt-4 fw-medium">{!! __('AI Supported Design Process') !!}</h4>
                     <p>{!! __('We make you decide by seeing various different options.') !!}</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
                     <img src="{{Vite::asset('resources/images/home-icon-3.svg')}}" alt="3D Animation Icon" class="mb-3">
-                    <h4 class="py-3 fw-medium">3D Animation & Detail Drawings</h4>
+                    <h4 class="py-3 mt-3 fw-medium">{!! __('3D Animation & Detail Drawings') !!}</h4>
                     <p>{!! __('We invite you to your space digitally. After you watch the tour video, you will receive the
                         details.') !!}</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
                     <img src="{{Vite::asset('resources/images/home-icon-4.svg')}}" alt="Construction Icon" class="mb-3">
-                    <h4 class="py-3 fw-medium">{!! __('Construction & Installation') !!}</h4>
+                    <h4 class="py-3 mt-3 fw-medium">{!! __('Construction & Installation') !!}</h4>
                     <p>{!! __('Our construction team provides transparent & clean construction process.') !!}</p>
                 </div>
             </div>

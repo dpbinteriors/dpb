@@ -21,7 +21,6 @@ body, html {
 }
 
 
-
 .hidden-desktop {
     display: none;
 }
@@ -507,23 +506,28 @@ textarea {
 .packs .row div:nth-child(2) img {
     margin-top: 10px;
 }
+
 .packs .row div:nth-child(3) img {
     margin-top: -10px;
 }
+
+.packs .row div:nth-child(4) img {
+    margin-top: -5px;
+}
+
 .packs .row div:nth-child(5) img {
     margin-top: -12px;
 }
 
 
 .rooms-area > div:nth-child(1) .image-title
-
 .packs p {
     font-size: 18px;
     color: #444343;
     font-weight: 300;
 }
 
-.packs h4{
+.packs h4 {
     color: #444343;
 }
 
@@ -1015,6 +1019,13 @@ a {
     color: #FB8925;
 }
 
+.blog-content-area img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
 .content {
     padding: 40px;
     text-align: end;
@@ -1204,6 +1215,8 @@ h2 {
 
 .card img {
     border-radius: unset;
+    height: 250px;
+    object-fit: cover;
 }
 
 
@@ -1272,6 +1285,185 @@ h2 {
     font-weight: 400;
 }
 
+
+.team-item {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: .3s ease;
+}
+
+.team-item img {
+    width: 100%;
+    transition: all 0.3s linear;
+}
+
+.team-item .team-content {
+    display: block;
+}
+
+.team-item .team-content h3 {
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 0;
+    bottom: -58px;
+    background-color: #fff;
+    box-shadow: 0px 14px 70px -10px rgba(0, 0, 0, .15);
+    transform: rotate(-90deg);
+    transform-origin: 0 0;
+    padding: 10px 15px;
+    font-size: 16px;
+    z-index: 2;
+}
+
+/*Dark Background*/
+.bg-dark .team-item .team-content h3 {
+    color: #263a4f;
+}
+
+.team-item .team-content span {
+    position: absolute;
+    width: auto;
+    height: auto;
+    right: 20px;
+    bottom: 20px;
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-family: "Work Sans", sans-serif;
+    padding: 5px 10px;
+    background-color: #FB8925;
+    box-shadow: 0px 14px 70px -10px rgba(0, 0, 0, .15);
+    text-transform: uppercase;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.team-item .team-social {
+    position: absolute;
+    width: auto;
+    height: auto;
+    list-style: none;
+    right: 20px;
+    top: 20px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 2;
+    transition: all 0.3s linear;
+}
+
+.team-item .team-social li {
+    transform: translateX(100px);
+    transition: all 0.3s linear;
+}
+
+.team-item .team-social li:nth-child(1) {
+    transition-delay: 0ms;
+}
+
+.team-item .team-social li:nth-child(2) {
+    transition-delay: 100ms;
+}
+
+.team-item .team-social li:nth-child(3) {
+    transition-delay: 150ms;
+}
+
+.team-item .team-social li:nth-child(4) {
+    transition-delay: 200ms;
+}
+
+.team-item:hover .team-social li {
+    transform: translateX(0);
+}
+
+.team-item .team-social li a {
+    color: #fff;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.team-item:hover img {
+    transform: scale(1.08);
+    cursor: pointer;
+}
+
+.team-item:hover .team-social {
+    visibility: visible;
+    opacity: 1;
+}
+
+.team-item .overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.team-item:hover .overlay {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.breadcrumb-area-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Siyah ve %60 opaklık */
+    z-index: 2;
+}
+
+.breadcrumb-area-bg .bread-crumb-area-inner {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 150px 0;
+}
+
+@media (max-width: 991px) {
+    .breadcrumb-area-bg .bread-crumb-area-inner {
+        padding: 130px 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .breadcrumb-area-bg .bread-crumb-area-inner {
+        padding: 100px 0;
+    }
+}
+
+.breadcrumb-area-bg .bread-crumb-area-inner .breadcrumb-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.breadcrumb-area-bg .bread-crumb-area-inner .breadcrumb-top a {
+    color: #fff;
+}
+
+.breadcrumb-area-bg .bread-crumb-area-inner .breadcrumb-top a.active {
+    color: #ffffff;
+}
+
+.breadcrumb-area-bg .bread-crumb-area-inner .bottom-title .title {
+    color: #fff;
+    text-align: center;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 70px;
+    text-transform: capitalize;
+    margin-top: 10px;
+}
 
 @media (max-width: 1600px) {
     /* Added new breakpoint */
@@ -1565,6 +1757,7 @@ h2 {
         position: relative;
         width: 100%;
     }
+
     .hidden-desktop {
         display: block;
     }
