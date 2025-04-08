@@ -244,7 +244,7 @@
                 @foreach($slides as $slide)
                     <div class="carousel-item {{ $loop->first ? 'active show' : '' }}">
                         <div class="image-container-commercial">
-                            <img src="{{ asset('uploads/' . $slide->image) }}" alt="Project Image">
+                            <img src="{{ asset('storage/' . $slide->image) }}" alt="Project Image">
                             <div class="image-text">
                                 {{ $slide->title }}<br>{{ $slide->description }}
                             </div>
@@ -303,12 +303,12 @@
     <div class="container-fluid custom-section mb-4">
         <div class="container overflow-visible ">
             <div class="row gx-5 py-3">
-                <div class="col-lg-7 col-12">
+                <div class="col-xxl-7 z-9 col-12">
                     <div class="content-box  mb-lg-0 mb-4" style="max-width: 110%; margin-left: -5%;">
                         <img src="{{Vite::asset('resources/images/about-img.jpg')}}" alt="Animated GIF">
                     </div>
                 </div>
-                <div class="col-lg-5 col-12 text-content">
+                <div class="col-xxl-5 col-12 text-content">
                     <div class="content-box-2">
                         <h5 id="slide-title">Look at our catalogue and discuss with our designers.</h5>
                         <p id="slide-desc">

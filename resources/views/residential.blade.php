@@ -65,8 +65,8 @@
 
             <!-- Yeşil Kutu -->
             <div class="green-box d-flex flex-wrap justify-content-between align-items-center">
-                <h2>{!! __('We will bring your dream interior to life. <p>But first, we want you to dream more.</p>') !!}</h2>
-                <h4 class="pe-3">{!! __('Design.Plan.Build <br> <span>London, UK <br>2025</span>') !!}</h4>
+                <h2 class="m-0">{!! __('We will bring your dream interior to life. <p class="m-0">But first, we want you to dream more.</p>') !!}</h2>
+                <h4 class="pe-3">{!! __('Design,Plan,Build <br> <span>London, UK <br>2025</span>') !!}</h4>
             </div>
         </div>
     </div>
@@ -109,13 +109,13 @@
 
     <div class="container-fluid custom-section mb-4">
         <div class="container overflow-visible ">
-            <div class="row gx-5 py-3">
-                <div class="col-lg-7 col-12">
+            <div class="row gx-5 py-3 position-relative">
+                <div class="col-xxl-7 col-12 z-9">
                     <div class="content-box  mb-lg-0 mb-4" style="max-width: 110%; margin-left: -5%;">
                         <img src="{{Vite::asset('resources/images/about-img.jpg')}}" alt="Animated GIF">
                     </div>
                 </div>
-                <div class="col-lg-5 col-12 text-content">
+                <div class="col-xxl-5 col-12 text-content">
                     <div class="content-box-2">
                         <h5 id="slide-title">{!! __('Look at our catalogue and discuss with our designers.') !!}</h5>
                         <p id="slide-desc">

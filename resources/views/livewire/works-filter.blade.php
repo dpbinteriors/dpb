@@ -21,7 +21,7 @@
                 <div class="col-md-4 mb-4 work-item" data-category="{{ $work->category->id }}">
                     <a href="{{ route('works-detail', ['slug' => $work->slug]) }}">
                         <div class="card works-card h-100">
-                            <img src="{{ asset('uploads/' . $work->image_path) }}" class="card-img-top" alt="Interior">
+                            <img src="{{ asset('storage/' . $work->image_path) }}" class="card-img-top" alt="Interior">
                             <div class="card-body">
                                 <p class="category">{{ $work->category->title }}</p>
                                 <h5 class="card-title">{{ $work->title }}</h5>

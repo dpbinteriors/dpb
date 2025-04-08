@@ -32,6 +32,7 @@
         height: 100vh;
         overflow: hidden;
         transition: all 0.3s ease;
+        filter: drop-shadow(2px 4px 6px black);
     }
 
     .section a {

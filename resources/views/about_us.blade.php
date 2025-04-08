@@ -143,6 +143,15 @@
             }
         }
 
+        .about-icons-text i{
+            color: #FB8925;
+        }
+
+        .about-icons-text h6{
+            color: #025949;
+        }
+
+
 
     </style>
 @endsection
@@ -184,31 +193,31 @@
                     {!! __('With years of experience in the field, we are an innovative architectural studio dedicated to transforming your dreams into reality. Our team of passionate professionals works tirelessly to bring your vision to life, combining cutting-edge modern design lines with timeless aesthetics and seamless functionality. We believe in creating spaces that not only meet your needs but also inspire and elevate your everyday experiences.') !!}
                 </p>
 
-                <div class="row">
+                <div class="row about-icons-text">
                     <div class="col-12 col-sm-4 mb-3">
                         <div class="d-flex align-items-start">
-                            <i class="bi bi-brush fs-3 text-primary me-3"></i>
+                            <i class="bi bi-brush fs-3  me-3"></i>
                             <div>
-                                <h6 class="mb-1">Yaratıcılık</h6>
-                                <small class="text-muted">Her projeye özgün bir bakış açısı.</small>
+                                <h6 class="mb-1">{!! __('Creativity') !!}</h6>
+                                <small class="text-muted">{!! __('Creativity sparks ideas and solutions.') !!}</small>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-sm-4 mb-3">
                         <div class="d-flex align-items-start">
-                            <i class="bi bi-shield-check fs-3 text-success me-3"></i>
+                            <i class="bi bi-shield-check fs-3  me-3"></i>
                             <div>
-                                <h6 class="mb-1">Güvenilirlik</h6>
-                                <small class="text-muted">Zamanında ve kaliteli teslimat.</small>
+                                <h6 class="mb-1">{!! __('Reliability') !!}</h6>
+                                <small class="text-muted">{!! __('Clients trust our reliable professional services.') !!}</small>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-sm-4 mb-3">
                         <div class="d-flex align-items-start">
-                            <i class="bi bi-tree fs-3 text-warning me-3"></i>
+                            <i class="bi bi-tree fs-3  me-3"></i>
                             <div>
-                                <h6 class="mb-1">Sürdürülebilirlik</h6>
-                                <small class="text-muted">Doğaya saygılı çözümler.</small>
+                                <h6 class="mb-1">{!! __('Inovatility') !!}</h6>
+                                <small class="text-muted">{!! __('We implement innovative design solutions..') !!}</small>
                             </div>
                         </div>
                     </div>
@@ -218,39 +227,6 @@
     </section>
 
 
-    <div class="packs-commercial mt-5 pt-2">
-        <div class="container px-1 px-xl-5 pb-2">
-            <div class="row  mt-5 gx-5 text-center">
-                <div class="text-start">
-                    <h2 class="explore-text">{!! __('Explore how <strong>Design Plan Build</strong> process works') !!}</h2>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3 my-5">
-                    <img src="{{Vite::asset('resources/images/interior-icon.png')}}" alt="Survey Icon" class="mb-3">
-                    <h4 class="fw-bold">Interior</h4>
-                    <p>Design</p>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3 my-5">
-                    <img src="{{Vite::asset('resources/images/website-icon.png')}}" alt="AI Design Icon" class="mb-3">
-                    <h4 class="fw-bold">Brand </h4>
-                    <p>{!! __('Consultation / Strategy / Design') !!}</p>
-
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3 my-5">
-                    <img src="{{Vite::asset('resources/images/branding-icon.png')}}" alt="3D Animation Icon"
-                         class="mb-3">
-                    <h4 class="fw-bold">{!! __('Graphic') !!}</h4>
-                    <p>{!! __('Design') !!}</p>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3 my-5">
-                    <img src="{{Vite::asset('resources/images/website-icon.png')}}" alt="Construction Icon"
-                         class="mb-3">
-                    <h4 class="fw-bold">Website</h4>
-                    <p>{!! __('Design') !!}</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
 
 
     <section class="team-section mt-5 pt-5">
