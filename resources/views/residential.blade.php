@@ -46,30 +46,49 @@
         .slide-list-area li {
             cursor: pointer;
         }
+
+        .slide-list-video-box video {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+        }
+
+        .max-w-15 {
+            max-width: 15%;
+        }
+
+        @media (max-width: 992px) {
+            .max-w-15 {
+                max-width: 100%;
+            }
+        }
     </style>
 @endsection
 
 @section('content')
 
     <div class="slider-container">
-        <div class="img-container">
-            <img src="{{Vite::asset('resources/images/before-after-2.jpg')}}" alt="Bathroom before" id="before-img">
+        <div class="w-100 h-100">
+            <video class="w-100" autoplay playsinline loop muted>
+                <source class="w-100 h-100" src="{{ asset('storage/' . $slide->video) }}" type="video/mp4">
+            </video>
         </div>
 
 
         <div class="banner-info-area position-absolute">
             <!-- Turuncu Kutu -->
             <div class="orange-box   ">
-                <p>interior design & construction services</p>
+                <p>{{$slide->type}}</p>
             </div>
 
             <!-- Yeşil Kutu -->
             <div class="green-box d-flex flex-wrap justify-content-between align-items-center">
-                <h2 class="m-0">{!! __('We will bring your dream interior to life. <p class="m-0">But first, we want you to dream more.</p>') !!}</h2>
-                <h4 class="pe-3">{!! __('Design,Plan,Build <br> <span>London, UK <br>2025</span>') !!}</h4>
+                <h2 class="m-0">{{$slide->title}}<p class="m-0">{{$slide->slogan}}</p></h2>
+                <h4 class="pe-3 max-w-15">{{$slide->description}}</h4>
             </div>
         </div>
     </div>
+
 
 
     <div class="packs">
@@ -111,36 +130,43 @@
         <div class="container overflow-visible ">
             <div class="row gx-5 py-3 position-relative">
                 <div class="col-xxl-7 col-12 z-9">
-                    <div class="content-box  mb-lg-0 mb-4" style="max-width: 110%; margin-left: -5%;">
-                        <img src="{{Vite::asset('resources/images/about-img.jpg')}}" alt="Animated GIF">
+                    <div class="content-box slide-list-video-box  mb-lg-0 mb-4"
+                         style="max-width: 110%; margin-left: -5%;">
+                        <video id="slide-video" class="w-100" autoplay playsinline loop muted>
+                            <source src="" type="video/mp4">
+                        </video>
+                        <img class="w-100 d-none" src="" alt="Slide Image"/>
                     </div>
                 </div>
                 <div class="col-xxl-5 col-12 text-content">
                     <div class="content-box-2">
-                        <h5 id="slide-title">{!! __('Look at our catalogue and discuss with our designers.') !!}</h5>
+                        <h5 id="slide-title"></h5>
                         <p id="slide-desc">
-                            {!! __('Our style catalogue is shaped by our designers to let you think by seeing the possibilities.<br>
-                            We will listen to your needs and interests carefully to understand what would make you
-                            happy.') !!}
+
                         </p>
                     </div>
 
                     <ul class="slide-list-area">
                         <li data-title="{!! __('Look at our catalogue and discuss with our designers.') !!}"
                             data-desc="Our style catalogue is shaped by our designers to let you think by seeing the possibilities. We will listen to your needs and interests carefully to understand what would make you happy."
-                            class="active">
+                            data-image="{{ Vite::asset('resources/images/about-img.jpg') }}"
+                            class="">
                             {!! __('Look at our catalogue and discuss with our designers.') !!}
                         </li>
                         <li data-title="{!! __('See various styles and finishes in a short time.') !!}"
-                            data-desc="{!! __('We will bring you a moodboard and some quick renders to let youimagine the styles in your space.According to your selections, you will receive a concept designas we called `design pack`.') !!}">
+                            data-desc="'We will bring you a mood board and some quick renders to let youimagine the styles in your space.According to your selections, you will receive a concept design as we called design pack"
+                            data-video="{{ Vite::asset('resources/images/see2.mp4') }}">
                             {!! __('See various styles and finishes in a short time.') !!}
                         </li>
                         <li data-title="{!! __('Walk in the space, see details in 3D drawings.') !!}"
-                            data-desc="{!! __('In the `Plan Pack`, we will give you the construction details of the projectand give you a virtual walk in the finished project. Also you will receive an estimated budget and a shopping list.') !!}">
+                            data-desc="In the `Plan Pack`, we will give you the construction details of the projectand give you a virtual walk in the finished project. Also you will receive an estimated budget and a shopping list."
+                            data-image="{{ Vite::asset('resources/images/walk.jpg') }}">
                             {!! __('Walk in the space, see details in 3D drawings.') !!}
                         </li>
+
                         <li data-title="{!! __('Follow the construction without surprises.') !!}"
-                            data-desc="{!! __('Our confidence is coming from 20 years in London construction industry.We work with realistic deadlines and seamless construction process throughcollaboration of our designers, engineers and builders.') !!}">
+                            data-desc="Our confidence is coming from 20 years in London construction industry.We work with realistic deadlines and seamless construction process through collaboration of our designers, engineers and builders."
+                            data-image="{{ Vite::asset('resources/images/follow.jpg') }}">
                             {!! __('Follow the construction regularly, without unpleasant surprises.') !!}
                         </li>
                     </ul>
@@ -151,39 +177,24 @@
         </div>
     </div>
 
-    <div class="container rooms  py-4">
+    <div class="container rooms py-4">
         <h4 class="intro-text">
-            {!! __('        We are quite flexible on adapting on your preferences, new challenges are more than welcomed.<br>
-                    Classic, industrial, minimalist, mediterranean and more.') !!}
+            {!! __('We are quite flexible on adapting on your preferences, new challenges are more than welcomed.<br>
+            Classic, industrial, minimalist, mediterranean and more.') !!}
         </h4>
-        <div class="d-flex rooms-area flex-lg-nowrap flex-wrap">
-            <div class="w-300">
-                <div class="image-container">
-                    <img src="{{Vite::asset('resources/images/project-1.jpg')}}" alt="Living Room">
-                    <div class="image-title title-green">{!! __('LIVING ROOMS') !!}</div>
-                </div>
-            </div>
-            <div class="w-400">
-                <div class="image-container">
-                    <img src="{{Vite::asset('resources/images/project-2.jpg')}}" alt="Kitchen">
-                    <div class="image-title title-orange">{!! __('KITCHENS') !!}</div>
-                </div>
-            </div>
-            <div class="w-310">
-                <div class="image-container">
-                    <img src="{{Vite::asset('resources/images/project-3.jpg')}}" alt="Bedroom">
-                    <div class="image-title title-green">{!! __('BEDROOMS') !!}</div>
-                </div>
-            </div>
-            <div class="w-300">
-                <div class="image-container">
-                    <img src="{{Vite::asset('resources/images/project-4.jpg')}}" alt="Bathroom">
-                    <div class="image-title title-orange">{!! __('BATHROOMS') !!}</div>
-                </div>
-            </div>
-        </div>
 
+        <div class="row g-4 rooms-area">
+            @foreach($residentialrooms as $rooms)
+                <div class="col-12 col-md-4 col-lg-12">
+                    <div class="image-container">
+                        <img src="{{ asset('storage/' . $rooms->image) }}" alt="Living Room">
+                        <div class="image-title title-green">{{ $rooms->title }}</div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
+
 
 
 

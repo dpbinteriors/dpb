@@ -49,10 +49,12 @@
                         <a class="hidden-desktop" href="{{route('home')}}"> <img src="{{Vite::asset('resources/images/logo.svg')}}" alt="APB Interiors Logo"
                                                           class="logo">
                         </a>
+                        <a href="{{route('residential')}}" class="hidden-desktop nav-item mt-5 pt-2">Residential</a>
+                        <a href="{{route('commercial')}}" class=" hidden-desktop nav-item">Commercial</a>
                         <a href="{{route('works-index')}}" class="nav-item">Works</a>
                         <a href="{{route('blog')}}" class="nav-item">Blog</a>
                         <a href="{{route('about-us')}}" class="nav-item">About</a>
-                        <a href="{{'contact'}}" class="nav-item">Contact us</a>
+                        <a href="{{route('contact')}}" class="nav-item">Contact us</a>
                         <a href="{{route('human-resources')}}" class="nav-item">Careers</a>
                         @foreach ($socialMediaLinks as $socialMediaLink)
                             <a href="{{ $socialMediaLink->url }}" target="_blank" class="nav-item mb-1" title="{{ $socialMediaLink->title }}">

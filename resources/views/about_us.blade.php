@@ -24,7 +24,7 @@
     <style>
         .breadcrumb-area-bg {
             position: relative;
-            background-image: url({{Vite::asset('resources/images/works-1.jpg')}});
+            background-image: url({{Vite::asset('resources/images/about-bg.jpg')}});
             background-size: cover;
             background-position: center;
             z-index: 1;
@@ -214,7 +214,7 @@
                     </div>
                     <div class="col-12 col-sm-4 mb-3">
                         <div class="d-flex align-items-start">
-                            <i class="bi bi-tree fs-3  me-3"></i>
+                            <i class="bi bi-gear fs-3  me-3"></i>
                             <div>
                                 <h6 class="mb-1">{!! __('Inovatility') !!}</h6>
                                 <small class="text-muted">{!! __('We implement innovative design solutions..') !!}</small>
@@ -232,27 +232,27 @@
     <section class="team-section mt-5 pt-5">
         <div class="container">
             <div class="section-heading text-center mb-40">
-                <span>Our Team</span>
-                <h2>Speciallized team</h2>
+                <h2>{!! __('OUR TEAM') !!}</h2>
             </div><!--/.section-heading-->
             <div class="row team-wrap">
+                @foreach($teams as $team)
                 <div class="col-lg-3 col-sm-6 padding-15">
                     <div class="team-item">
                         <div class="overlay"></div>
-                        <img src="https://html.dynamiclayers.net/dl/arkit/img/team-1.jpg" alt="team">
+                        <img src="{{ asset('storage/' . $team->image) }}" alt="team">
                         <div class="team-content">
-                            <h3>Jhon Castellon</h3>
-                            <span>Architect</span>
+                            <h3>{{$team->title}}</h3>
+                            <span>{{$team->position_name}}</span>
                         </div>
                         <ul class="team-social">
-                            <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                            <li><a href="#"><i class="bi bi-instagram"></i></a></li>
-                            <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-                            <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                            <li><a target="_blank" href="{{$team->twitter_url}}"><i class="bi bi-twitter"></i></a></li>
+                            <li><a target="_blank" href="{{$team->instagram_url}}"><i class="bi bi-instagram"></i></a></li>
+                            <li><a target="_blank" href="{{$team->linkedin_url}}"><i class="bi bi-linkedin"></i></a></li>
+                            <li><a target="_blank" href="{{$team->behance_url}}"><i class="bi bi-behance"></i></a></li>
                         </ul>
                     </div>
                 </div>
-
+                @endforeach
             </div>
         </div>
     </section>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- <link rel="shortcut icon" href="{{ Vite::asset('resources/images/favicongelecek') }}"> --}}
+     <link rel="shortcut icon" href="{{ Vite::asset('resources/images/dpb-fav.png') }}">
 
     @yield('meta')
 
@@ -17,7 +17,6 @@
     @yield('styles')
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ env('GOOGLE_SITE_TAG') }}"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 
     {{-- Bootstrap CSS --}}
@@ -29,13 +28,14 @@
           @livewireStyles
 
     {{-- Google Analytics Script --}}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ env('GOOGLE_SITE_TAG') }}"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
 
         function gtag() {
             dataLayer.push(arguments);
         }
-
         gtag('js', new Date());
         gtag('config', '{{ env('GOOGLE_SITE_TAG') }}');
     </script>
@@ -159,37 +159,60 @@
 </script>
 <script>
     $(document).ready(function () {
-        let items = $(".slide-list-area li");
+        const items = $(".slide-list-area li");
+        const video = $(".slide-list-video-box video")[0];
+        const source = $(video).find("source");
+        const image = $(".slide-list-video-box img");
 
         function updateSlide(index) {
-            let currentItem = $(items[index]);
+            const currentItem = $(items[index]);
 
-            // Başlık ve açıklamayı güncelle
+            // Başlık ve açıklama
             $("#slide-title").text(currentItem.data("title"));
             $("#slide-desc").text(currentItem.data("desc"));
 
-            // Önceki aktif öğeyi pasif yap
-            $(".slide-list-area li").removeClass("active");
+            const newVideoSrc = currentItem.data("video");
+            const newImageSrc = currentItem.data("image");
 
-            // Yeni öğeyi aktif yap
+            if (newVideoSrc) {
+                $(video).removeClass("d-none");
+                image.addClass("d-none");
+
+                source.attr("src", newVideoSrc);
+                video.load();
+                video.play();
+            } else if (newImageSrc) {
+                $(video).addClass("d-none");
+                image.removeClass("d-none");
+                image.attr("src", newImageSrc);
+                video.pause();
+            }
+
+            items.removeClass("active");
             currentItem.addClass("active");
 
-            // **Aşağı kayma efekti (animasyonlu)**
-            $(".slide-list-area").animate({scrollTop: currentItem.position().top}, 500);
+            $(".slide-list-area").animate({
+                scrollTop: currentItem.position().top
+            }, 500);
         }
 
-        // Liste öğelerine tıklanınca geçiş yap
-        $(".slide-list-area li").click(function () {
-            let index = $(this).index();
+        // 👉 Sayfa yüklendiğinde ilk slide'ı güncelle
+        updateSlide(0);
+
+        // Tıklama
+        items.click(function () {
+            const index = $(this).index();
             updateSlide(index);
         });
 
-        // Otomatik geçiş (her 3 saniyede bir)
+        // Otomatik geçiş
         setInterval(function () {
-            let nextIndex = ($(".slide-list-area li.active").index() + 1) % items.length;
+            const currentIndex = $(".slide-list-area li.active").index();
+            const nextIndex = (currentIndex + 1) % items.length;
             updateSlide(nextIndex);
         }, 10000);
     });
+
 </script>
 
 <script>

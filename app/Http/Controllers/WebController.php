@@ -14,12 +14,16 @@ use App\Mail\YedekFormSubmitted;
 use App\Models\Address;
 use App\Models\Application;
 use App\Models\Article;
+use App\Models\Banner;
 use App\Models\Campaign;
+use App\Models\CommercialRooms;
 use App\Models\Document;
 use App\Models\LegalPage;
 use App\Models\Product;
+use App\Models\ResidentialRooms;
 use App\Models\Slide;
 use App\Models\Supplier;
+use App\Models\Team;
 use App\Models\Works;
 use App\Models\WorksCategories;
 use Artesaos\SEOTools\SEOTools;
@@ -51,7 +55,8 @@ class WebController extends BaseController
 
         $slides = Slide::published()->orderBy('position', 'asc')->get();
 
-        return view('home', compact('slides', ));
+
+        return view('home', compact('slides' ));
     }
 
     public function residential(): View
@@ -59,29 +64,34 @@ class WebController extends BaseController
         SEOTools::webPage(__('Dpb Interior - Ana Sayfa'), __('Our company, which started its commercial activities in 1985, aimed to develop and expand in other sectors by adopting a successful working principle in the future. With its years of experience in the spare parts sector, it works with the aim of providing the best service to its customers in a way that dominates the needs of the market.'));
 
         $works = Works::published()->orderBy('order', 'asc')->get();
+        $slide = Slide::published()->orderBy('position', 'asc')->first();
+        $residentialrooms = ResidentialRooms::published()->get();
 
-
-        return view('residential', compact('works'));
+        return view('residential', compact('works','slide','residentialrooms'));
     }
 
     public function commercial(): View
     {
+
+
         SEOTools::webPage(__('Dpb Interior - Ana Sayfa'), __('Our company, which started its commercial activities in 1985, aimed to develop and expand in other sectors by adopting a successful working principle in the future. With its years of experience in the spare parts sector, it works with the aim of providing the best service to its customers in a way that dominates the needs of the market.'));
 
         $works = Works::published()->orderBy('order', 'asc')->get();
-        $slides = Slide::published()->orderBy('position', 'asc')->get();
+        $banners = Banner::published()->orderBy('position', 'asc')->get();
+        $commercialrooms = CommercialRooms::published()->get();
 
         $articles = Article::published()
             ->orderBy('position', 'asc')
             ->get();
-        return view('commercial', compact('works','articles','slides'));
+        return view('commercial', compact('works','articles','banners','commercialrooms'));
     }
 
     public function aboutUs(): View
     {
+        $teams = Team::published()->get();
         SEOTools::webPage(__(key: 'Dpb Interior - Hakkımızda'), __(''));
 
-        return view('about_us');
+        return view('about_us' , compact('teams'));
     }
 
     public function blogIndex(): View

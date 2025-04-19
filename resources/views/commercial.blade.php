@@ -1,23 +1,22 @@
 @extends('layouts.app', ['headerClasses' => '', 'menuClasses' => '', 'isMobile' => true])
 
 @section('meta')
-    <title>{{__('COMMERCIALMETA_TITLE')}}</title>
+    <title>{{__('COMMERCIAL_PAGE_META_TITLE')}}</title>
     <meta name="description"
-          content="{{__('COMMERCIAL_DESCRIPTION')}}">
+          content="{{__('COMMERCIAL_PAGE_META_DESCRIPTION')}}">
     <meta name="keywords"
-          content="{{__('Commercial, keywords')}}">
+          content="{{__('commercial, page, keywords')}}">
     <link rel="canonical" href="{{ url()->current() }}">
 
-
-    <meta property="og:title" content="{{__('COMMERCIAL_META_TITLE')}}">
-    <meta property="og:description" content="{{__('BLOG_INDEX_META_DESCRIPTION')}}">
+    <meta property="og:title" content="{{__('COMMERCIAL_PAGE_META_TITLE')}}">
+    <meta property="og:description" content="{{__('COMMERCIAL_PAGE_META_DESCRIPTION')}}">
 
     <meta property="og:url" content="{{url()->current()}}">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{__('COMMERCIAL_META_TITLE')}}">
-    <meta name="twitter:description" content="{{__('COMMERCIAL_META_DESCRIPTION')}}">
+    <meta name="twitter:title" content="{{__('COMMERCIAL_PAGE_META_TITLE')}}">
+    <meta name="twitter:description" content="{{__('COMMERCIAL_PAGE_META_DESCRIPTION')}}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
@@ -134,25 +133,27 @@
             background: linear-gradient(90deg, rgb(2, 89, 73) 37%, rgba(255, 255, 255, 1) 100%) !important;
         }
 
-        .rooms-area > div:nth-child(1) .image-title {
-            font-size: 40px;
-            letter-spacing: 0.85em !important;
-            transform: translateX(3%) !important;
+        .rooms-area-commercial > div:nth-child(1) .image-title {
+            font-size: 32px;
+            letter-spacing: 1.1em !important;
+            transform: translateX(0%) !important;
             font-weight: bold;
         }
 
-        .rooms-area > div:nth-child(2) .image-title {
-            font-size: 40px;
-            letter-spacing: .95em !important;
+        .rooms-area-commercial > div:nth-child(2) .image-title {
+            font-size: 39px;
+            letter-spacing: 1.3em !important;
+            transform: translateX(0%) !important;
+            font-weight: bold;
+            bottom: -50px;
+        }
+
+        .rooms-area-commercial > div:nth-child(3) .image-title {
+            font-size: 23px;
             font-weight: bold;
         }
 
-        .rooms-area > div:nth-child(3) .image-title {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .rooms-area > div:nth-child(4) .image-title {
+        .rooms-area-commercial > div:nth-child(4) .image-title {
             font-size: 26px;
         }
 
@@ -231,6 +232,23 @@
             font-size: 20px;
             text-wrap: nowrap;
         }
+
+        .slide-list-area li {
+            cursor: pointer;
+            width: 400% !important;
+        }
+
+        .custom-section .content-box img {
+            height: 462px;
+        }
+
+        @media (max-width: 768px) {
+            .owl-carousel {
+                width: 100%;
+
+            }
+        }
+
     </style>
 @endsection
 
@@ -241,12 +259,12 @@
         <div class="carousel-container flex-wrap d-flex align-items-center">
             <div class="owl-carousel commercial-slide">
 
-                @foreach($slides as $slide)
+                @foreach($banners as $banner)
                     <div class="carousel-item {{ $loop->first ? 'active show' : '' }}">
                         <div class="image-container-commercial">
-                            <img src="{{ asset('storage/' . $slide->image) }}" alt="Project Image">
+                            <img src="{{ asset('storage/' . $banner->image) }}" alt="Project Image">
                             <div class="image-text">
-                                {{ $slide->title }}<br>{{ $slide->description }}
+                                {{ $banner->title }}<br>{{ $banner->tag }}
                             </div>
                         </div>
                     </div>
@@ -300,41 +318,43 @@
         </div>
     </div>
 
-    <div class="container-fluid custom-section mb-4">
+    <div class="container-fluid custom-section my-5 py-5">
         <div class="container overflow-visible ">
             <div class="row gx-5 py-3">
                 <div class="col-xxl-7 z-9 col-12">
-                    <div class="content-box  mb-lg-0 mb-4" style="max-width: 110%; margin-left: -5%;">
-                        <img src="{{Vite::asset('resources/images/about-img.jpg')}}" alt="Animated GIF">
+                    <div class="content-box slide-list-video-box  mb-lg-0 mb-4"
+                         style="max-width: 110%; margin-left: -5%;">
+                        <video id="slide-video" class="w-100" autoplay playsinline loop muted>
+                            <source src="" type="video/mp4">
+                        </video>
+                        <img class="w-100 d-none" src="" alt="Slide Image"/>
                     </div>
                 </div>
                 <div class="col-xxl-5 col-12 text-content">
                     <div class="content-box-2">
-                        <h5 id="slide-title">Look at our catalogue and discuss with our designers.</h5>
+                        <h5 id="slide-title"></h5>
                         <p id="slide-desc">
-                            Our style catalogue is shaped by our designers to let you think by seeing the possibilities.<br>
-                            We will listen to your needs and interests carefully to understand what would make you
-                            happy.
+
                         </p>
                     </div>
 
                     <ul class="slide-list-area">
-                        <li data-title="Look at our catalogue and discuss with our designers."
-                            data-desc="Our style catalogue is shaped by our designers to let you think by seeing the possibilities. We will listen to your needs and interests carefully to understand what would make you happy."
-                            class="active">
-                            Look at our catalogue and discuss with our designers.
+                        <li data-title="{!! __('Website Design') !!}"
+                            data-image="{{ Vite::asset('resources/images/website-design.jpg') }}"
+                            data-desc="We create visually stunning and highly functional website designs that not only reflect your brand’s unique identity but also provide an exceptional user experience, driving engagement, conversions, and customer loyalty effectively."
+                            class="">
+                            {!! __('Website Design') !!}
                         </li>
-                        <li data-title="See various styles and finishes in a short time."
-                            data-desc="We will bring you a moodboard and some quick renders to let youimagine the styles in your space.According to your selections, you will receive a concept designas we called `design pack`.">
-                            See various styles and finishes in a short time.
+                        <li data-title="{!! __('Interior Design') !!}"
+                            data-image="{{ Vite::asset('resources/images/interior-design.jpg') }}"
+                            data-desc="We specialize in creating innovative and aesthetically pleasing interior designs that reflect your unique style, enhance functionality, and create harmonious spaces, ensuring comfort and a lasting impression while elevating your brand’s identity."
+                        >
+                            {!! __('Interior Design') !!}
                         </li>
-                        <li data-title="Walk in the space, see details in 3D drawings."
-                            data-desc="In the `Plan Pack`, we will give you the construction details of the projectand give you a virtual walk in the finished project. Also you will receive an estimated budget and a shopping list.">
-                            Walk in the space, see details in 3D drawings.
-                        </li>
-                        <li data-title="Follow the construction without surprises."
-                            data-desc="Our confidence is coming from 20 years in London construction industry.We work with realistic deadlines and seamless construction process throughcollaboration of our designers, engineers and builders.">
-                            Follow the construction regularly, without unpleasant surprises.
+                        <li data-title="{!! __('Brand Design & Strategy') !!}"
+                            data-image="{{ Vite::asset('resources/images/brand-design.jpg') }}"
+                            data-desc="We provide comprehensive brand design and strategy services, crafting unique visual identities that resonate with your audience, strengthen your brand’s presence, and drive long-term success through effective positioning and thoughtful design.">
+                            {!! __('Brand Design & Strategy') !!}
                         </li>
                     </ul>
 
@@ -345,40 +365,22 @@
     </div>
 
 
-    <div class="container text-center  py-4">
-        <p class="intro-text text-start">
+    <div class="container rooms py-4">
+        <h4 class="intro-text">
             {!! __('We are quite flexible on adapting on your preferences, new challenges are more than welcomed.<br>
             Classic, industrial, minimalist, mediterranean and more.') !!}
-        </p>
-        <h2 style="color: #6c757d"
-            class="text-start">{!! __("Check some of our scenes from our latest projects until we finish our 'works' section.") !!}</h2>
-        <div class="d-flex rooms-area flex-lg-nowrap flex-wrap">
-            <div class="w-300">
-                <div class="image-container">
-                    <img src="{{Vite::asset('resources/images/project-1.jpg')}}" alt="Living Room">
-                    <div class="image-title title-green">{!! __('RETAIL') !!}</div>
-                </div>
-            </div>
-            <div class="w-400">
-                <div class="image-container">
-                    <img src="{{Vite::asset('resources/images/project-2.jpg')}}" alt="Kitchen">
-                    <div class="image-title title-orange">{!! __('OFFICE') !!}</div>
-                </div>
-            </div>
-            <div class="w-310">
-                <div class="image-container">
-                    <img src="{{Vite::asset('resources/images/project-3.jpg')}}" alt="Bedroom">
-                    <div class="image-title title-green">{!! __('HOSPITALITY') !!}</div>
-                </div>
-            </div>
-            <div class="w-300">
-                <div class="image-container">
-                    <img src="{{Vite::asset('resources/images/project-4.jpg')}}" alt="Bathroom">
-                    <div class="image-title title-orange">{!! __('EDUCATIONAL') !!}</div>
-                </div>
-            </div>
-        </div>
+        </h4>
 
+        <div class="row g-4 rooms-area rooms-area-commercial">
+            @foreach($commercialrooms as $rooms)
+                <div class="col-12 col-md-4 col-lg-12">
+                    <div class="image-container">
+                        <img src="{{ asset('storage/' . $rooms->image) }}" alt="Living Room">
+                        <div class="image-title title-green">{{ $rooms->title }}</div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
 
 

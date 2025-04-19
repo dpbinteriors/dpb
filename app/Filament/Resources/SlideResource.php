@@ -43,33 +43,32 @@ class SlideResource extends Resource
                 Section::make(__("panel.general_settings"))
                     ->schema([
 
-                        FileUpload::make('image')
-                            ->label(__('panel.main_image') . ' (1920x430)')
+                        FileUpload::make('video')
+                            ->label(__('panel.main_video') . ' (Önerilen boyut: 1920x430)')
                             ->directory('home_slides')
                             ->visibility('public')
                             ->required()
                             ->columnSpan(12)
-                            ->image()
-                            ->previewable()
-                            ->optimize('webp')
-                            ->imageEditor(),
+                            ->acceptedFileTypes(['video/mp4', 'video/webm']) // sadece video türleri kabul edilir
+                            ->maxSize(102400), // Maksimum dosya boyutu (KB cinsinden), örnek: 100 MB
 
-                        FileUpload::make('second_image')
-                            ->label(__('panel.second_image') . ' (824x1830)')
-                            ->directory('home_slides')
-                            ->visibility('public')
-                            ->required()
-                            ->columnSpan(12)
-                            ->image()
-                            ->previewable()
-                            ->optimize('webp')
-                            ->imageEditor(),
+
 
 
                         TextInput::make('title')
                             ->columnSpan(6)
                             ->translateLabel()
                             ->label(__('panel.title')),
+
+                        TextInput::make('type')
+                            ->columnSpan(6)
+                            ->translateLabel()
+                            ->label(__('panel.type')),
+
+                        TextInput::make('slogan')
+                            ->columnSpan(6)
+                            ->translateLabel()
+                            ->label(__('panel.slogan')),
 
                         TextInput::make('description')
                             ->label(__('panel.tag'))

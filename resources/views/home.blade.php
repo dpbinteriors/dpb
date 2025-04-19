@@ -10,7 +10,7 @@
 
     <meta property="og:title" content="{{__('HOME_PAGE_META_TITLE')}}">
     <meta property="og:description" content="{{__('HOME_PAGE_META_DESCRIPTION')}}">
-    <meta property="og:image" content="{{Vite::asset('resources/images/og.png')}}">
+
     <meta property="og:url" content="{{url()->current()}}">
     <meta property="og:type" content="website">
 
@@ -32,7 +32,7 @@
         height: 100vh;
         overflow: hidden;
         transition: all 0.3s ease;
-        filter: drop-shadow(2px 4px 6px black);
+
     }
 
     .section a {
@@ -196,6 +196,10 @@
             font-size: 50px;
             margin-bottom: 0;
             text-align: start;
+        }
+
+        .logo img{
+            height: 85px;
         }
 
     }

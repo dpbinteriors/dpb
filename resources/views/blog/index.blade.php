@@ -11,14 +11,14 @@
 
     <meta property="og:title" content="{{__('BLOG_INDEX_PAGE_META_TITLE')}}">
     <meta property="og:description" content="{{__('BLOG_INDEX_META_DESCRIPTION')}}">
-    <meta property="og:image" content="{{Vite::asset('resources/images/og.png')}}">
+
     <meta property="og:url" content="{{url()->current()}}">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{__('BLOG_INDEX_PAGE_META_TITLE')}}">
     <meta name="twitter:description" content="{{__('BLOG_INDEX_META_DESCRIPTION')}}">
-    <meta name="twitter:image" content="{{Vite::asset('resources/images/og.png')}}">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
@@ -292,7 +292,7 @@
                                 <!-- .highlight-box'ı buraya taşıdık -->
                                 <div class="highlight-box">
                                     <p>{{$article->caption}}</p>
-                                    <a href="#" class="read-more">Read More</a>
+                                    <a href="{{ route('blog-detail', ['slug' => $article->slug]) }}" class="read-more">Read More</a>
                                 </div>
                             </div>
                         @endif
@@ -328,7 +328,7 @@
                     <div class="col-md-4 mb-4">
                         <a href="{{ route('blog-detail', ['slug' => $article->slug]) }}" class="">
                             <div class="card works-card h-100">
-                                <img src="{{ asset('uploads/' . $article->image_path) }}" class="card-img-top"
+                                <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top"
                                      alt="Interior">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">

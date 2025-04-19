@@ -23,7 +23,7 @@
     <style>
         .breadcrumb-area-bg {
             position: relative;
-            background-image: url({{Vite::asset('resources/images/works-1.jpg')}});
+            background-image: url({{Vite::asset('resources/images/hr-bg.jpg')}});
             background-size: cover;
             background-position: center;
             z-index: 1;
