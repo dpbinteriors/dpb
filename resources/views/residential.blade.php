@@ -119,7 +119,7 @@
             }
 
             .main-slider-container img,video{
-                height: 100vh;
+                height: 100vh !important;
                 object-fit: cover;
             }
         }
@@ -268,7 +268,7 @@
 
         <div class="row g-4 rooms-area">
             @foreach($residentialrooms as $rooms)
-                <div class="col-12 col-md-4 col-lg-12">
+                <div class=" col-md-12 col-lg-4">
                     <div class="image-container">
                         <img src="{{ asset('storage/' . $rooms->image) }}" alt="Living Room">
                         <div class="image-title title-green">{{ $rooms->title }}</div>

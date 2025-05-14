@@ -406,57 +406,60 @@ textarea {
 
 
 .rooms-area > div:nth-child(1) .image-title {
-    left: 0;
-
-    letter-spacing: 0.22em;
-
+    left: 9px;
+    letter-spacing: 0.2em;
+    font-size: 29px;
 }
 
 .rooms-area > div:nth-child(2) .image-title {
-    left: 0;
-    transform: translateX(3%);
+    left: 10px;
     letter-spacing: 1em;
+    font-size: 31px;
 
 }
 
 .rooms-area > div:nth-child(3) .image-title {
-    left: 0;
-    transform: translateX(2%);
-    letter-spacing: .66em;
+    left: 10px;
+    letter-spacing: .6em;
+    font-size: 28px;
 
 }
 
 .rooms-area > div:nth-child(4) .image-title {
-    left: 0;
-    transform: translateX(2%);
-    letter-spacing: .46em;
+    left: 10px;
+    letter-spacing: .42em;
+    font-size: 28px;
 }
 
 
 .rooms-area-commercial > div:nth-child(1) .image-title {
-    left: 0;
-    transform: translateX(5%);
-    letter-spacing: 0.22em;
-
+    left: -2px;
+    letter-spacing: .8em;
+    font-size: 40px;
+    bottom: -55px;
 }
 
 .rooms-area-commercial > div:nth-child(2) .image-title {
-    left: 0;
-    letter-spacing: .85em;
+    font-size: 39px;
+    letter-spacing: 1.3em;
+    transform: translateX(0%);
+    font-weight: bold;
+    bottom: -50px;
+    left:0;
 
 }
 
 .rooms-area-commercial > div:nth-child(3) .image-title {
     left: 0;
-    transform: translateX(2%);
+    font-size: 23px;
     letter-spacing: .66em;
 
 }
 
 .rooms-area-commercial > div:nth-child(4) .image-title {
     left: 0;
-    transform: translateX(2%);
-    letter-spacing: .46em;
+    letter-spacing: .48em;
+    font-size: 25px;
 }
 
 
@@ -547,7 +550,6 @@ textarea {
 }
 
 
-.rooms-area > div:nth-child(1) .image-title
 .packs p {
     font-size: 18px;
     color: #444343;
@@ -1747,6 +1749,10 @@ h2 {
         width: 100%;
         height: fit-content;
     }
+
+    .image-title {
+        width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1772,7 +1778,7 @@ h2 {
     .orange-box {
         max-width: 100%;
         right: 0;
-        top: -25%;
+        top: -23%;
         width: 100%;
     }
 
@@ -1852,9 +1858,6 @@ h2 {
         width: 100%;
     }
 
-    .image-title {
-        width: 100%;
-    }
 
     .highlight-box {
         position: relative;

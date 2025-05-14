@@ -21,6 +21,55 @@
     <meta name="twitter:image" content="{{ asset('storage/' . $work->image_path) }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+
+    <style>
+        .card-img-top {
+            height: 270px;
+            object-fit: cover;
+        }
+
+        .card {
+            border: none !important;
+
+        }
+
+        .category {
+            color: #ccc;
+            font-size: 14px;
+
+        }
+
+        .card-title {
+            font-size: 20px;
+            color: #222;
+            padding-top: 0px !important;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            font-weight: bold;
+            background:unset !important;
+        }
+
+        .style {
+            color: #FB8925;
+        }
+
+        .type {
+            color: #222;
+        }
+
+        .card-footer {
+            background-color: unset;
+        }
+    </style>
 @endsection
 
 @section('content')

@@ -133,29 +133,6 @@
             background: linear-gradient(90deg, rgb(2, 89, 73) 37%, rgba(255, 255, 255, 1) 100%) !important;
         }
 
-        .rooms-area-commercial > div:nth-child(1) .image-title {
-            font-size: 32px;
-            letter-spacing: 1.1em !important;
-            transform: translateX(0%) !important;
-            font-weight: bold;
-        }
-
-        .rooms-area-commercial > div:nth-child(2) .image-title {
-            font-size: 39px;
-            letter-spacing: 1.3em !important;
-            transform: translateX(0%) !important;
-            font-weight: bold;
-            bottom: -50px;
-        }
-
-        .rooms-area-commercial > div:nth-child(3) .image-title {
-            font-size: 23px;
-            font-weight: bold;
-        }
-
-        .rooms-area-commercial > div:nth-child(4) .image-title {
-            font-size: 26px;
-        }
 
         .slide-list-area li:not(.active) {
             background-color: rgba(2, 89, 73, 0.11) !important;

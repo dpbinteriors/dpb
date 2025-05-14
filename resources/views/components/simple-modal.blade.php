@@ -1,23 +1,77 @@
 <!-- Modal toggle -->
-
-<!-- Main modal -->
-    <div id="generic-modal" tabindex="-1" aria-hidden="false"
-         class=" overflow-y-auto overflow-x-hidden fixed left-0 top-0   z-50 justify-center items-center w-full md:inset-0  max-h-full h-full  bg-opacity-[50%] bg-black ">
-        <div class="relative p-4 w-full max-w-2xl max-h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow py-[36px]">
-                <!-- Modal header -->
-                <!-- Modal body -->
-                <div class="p-4 space-y-4 text-center">
-                    <h1 class="h2 text-blue-400">{!! __('İletişime Geçtiğiniz İçin Teşekkür Ederiz') !!}</h1>
-                    <p>{!! __('En kısa sürede tarafınıza geri dönüş yapılacaktır') !!}</p>
-                </div>
-                <!-- Modal footer -->
-                <div class="inline-flex justify-center w-full mt-[35px]">
-                    <button class="btn button-secondary px-[24px] py-[14px]" onclick="document.getElementById('generic-modal').style.display = 'none'">{!! __('Siteye Devam Et') !!}</button>
-                </div>
+<!-- Main Modal -->
+<div id="generic-modal" class="modal" tabindex="-1" aria-hidden="false">
+    <div class="modal-wrapper">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body">
+                <h1 class="modal-title">Thank You for Getting in Touch</h1>
+                <p>We will get back to you as soon as possible.</p>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button class="modal-button" onclick="document.getElementById('generic-modal').style.display = 'none'">Continue to Site</button>
             </div>
         </div>
     </div>
+</div>
 
+<style>
+    .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
+    .modal-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 640px;
+        padding: 16px;
+        transform: translateY(-50%);
+        top: 50%;
+    }
+
+    .modal-content {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        padding: 36px 24px;
+        text-align: center;
+    }
+
+    .modal-title {
+        color: #60a5fa;
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+
+    .modal-body p {
+        font-size: 1rem;
+        color: #333;
+    }
+
+    .modal-footer {
+        margin-top: 35px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .modal-button {
+        padding: 14px 24px;
+        border: none;
+        background-color: #e5e7eb;
+        cursor: pointer;
+        border-radius: 6px;
+        font-weight: 500;
+    }
+
+    .modal-button:hover {
+        background-color: #d1d5db;
+    }
+</style>
