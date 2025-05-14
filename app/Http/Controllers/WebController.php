@@ -64,10 +64,10 @@ class WebController extends BaseController
         SEOTools::webPage(__('Dpb Interior - Ana Sayfa'), __('Our company, which started its commercial activities in 1985, aimed to develop and expand in other sectors by adopting a successful working principle in the future. With its years of experience in the spare parts sector, it works with the aim of providing the best service to its customers in a way that dominates the needs of the market.'));
 
         $works = Works::published()->orderBy('order', 'asc')->get();
-        $slide = Slide::published()->orderBy('position', 'asc')->first();
+        $slides = Slide::published()->orderBy('position', 'asc')->get();
         $residentialrooms = ResidentialRooms::published()->get();
 
-        return view('residential', compact('works','slide','residentialrooms'));
+        return view('residential', compact('works','slides','residentialrooms'));
     }
 
     public function commercial(): View
@@ -215,7 +215,7 @@ class WebController extends BaseController
     public function saveServiceForm(Request $request)
     {
         $validated = $request->validate([
-             'cf-turnstile-response' => ['required', Rule::turnstile()],
+            'cf-turnstile-response' => ['required', Rule::turnstile()],
             'name' => 'required',
             'email' => 'required|email',
             'country_code' => 'required',
@@ -239,7 +239,7 @@ class WebController extends BaseController
     public function saveSparePartForm(Request $request)
     {
         $validated = $request->validate([
-             'cf-turnstile-response' => ['required', Rule::turnstile()],
+            'cf-turnstile-response' => ['required', Rule::turnstile()],
             'name' => 'required',
             'email' => 'required|email',
             'country_code' => 'required',
@@ -297,11 +297,10 @@ class WebController extends BaseController
     public function saveContactForm(Request $request)
     {
         $validated = $request->validate([
-             'cf-turnstile-response' => ['required', Rule::turnstile()],
+            //'cf-turnstile-response' => ['required', Rule::turnstile()],
             'name' => 'required',
+            'last_name' => 'required',
             'email' => 'required|email',
-            'country_code' => 'required',
-            'phone_number' => 'required',
             'message' => 'required',
         ]);
 
@@ -326,7 +325,7 @@ class WebController extends BaseController
     public function contactMail(ContactFormRequest $request): RedirectResponse
     {
         $validated = $request->validate([
-             'cf-turnstile-response' => ['required', Rule::turnstile()],
+            'cf-turnstile-response' => ['required', Rule::turnstile()],
             'name' => 'required',
             'email' => 'required|email',
             'country_code' => 'required',

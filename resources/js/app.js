@@ -1,6 +1,6 @@
 import "./bootstrap";
 
-import { Loader } from "@googlemaps/js-api-loader";
+import {Loader} from "@googlemaps/js-api-loader";
 
 // Plugins
 
@@ -36,6 +36,54 @@ const init = () => {
     if (document.querySelector("#map")) {
         initMap();
     }
+
+
+    const swiper = new Swiper('.main-slider', {
+        // Enable loop mode
+        loop: true,
+
+        // Auto play settings
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+
+        // Smooth transition effect
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // Pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+        // Responsive breakpoints
+        breakpoints: {
+            // Mobile
+            320: {
+                // Settings for mobile
+            },
+            // Tablet
+            768: {
+                // Settings for tablet
+            },
+            // Desktop
+            1024: {
+                // Settings for desktop
+            },
+        }
+    });
+
+
 };
 
 function initMap() {
@@ -46,12 +94,12 @@ function initMap() {
 
 
     loader.load().then(async () => {
-        const { Map } = await google.maps.importLibrary("maps");
-        const { AdvancedMarkerElement } = await google.maps.importLibrary(
+        const {Map} = await google.maps.importLibrary("maps");
+        const {AdvancedMarkerElement} = await google.maps.importLibrary(
             "marker"
         );
 
-        const position = { lat: 40.7818229, lng: 29.9752745 };
+        const position = {lat: 40.7818229, lng: 29.9752745};
         const map = new Map(document.getElementById("map"), {
             center: position,
             mapId: "DEMO_MAP_ID",
@@ -137,7 +185,7 @@ window.toggleActiveForm = (formId) => {
     }
 };
 
- window.scrollIntoForm = (formId) => {
+window.scrollIntoForm = (formId) => {
     const $form = document.getElementById(formId);
     $form.scrollIntoView({
         behavior: "smooth",

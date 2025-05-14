@@ -277,9 +277,9 @@
                 <button class="next-slide"></button>
             </div>
             <div class="text-container">
-                <h3>We transform spaces, elevate brands.</h3>
-                <p>If you are looking for a fresh look to your brand, or building a new one, we accompany
-                    you with our holistic design services.</p>
+                <h3>{!! __('We transform spaces, elevate brands.') !!}</h3>
+                <p>{!! __('If you are looking for a fresh look to your brand, or building a new one, we accompany
+                    you with our holistic design services.') !!}</p>
             </div>
         </div>
     </section>
@@ -292,12 +292,12 @@
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
                     <img src="{{Vite::asset('resources/images/interior-icon.png')}}" alt="Survey Icon" class="mb-3">
-                    <h4 class="fw-bold">Interior</h4>
+                    <h4 class="fw-bold">{!! __('Interior') !!}</h4>
                     <p>Design</p>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
                     <img src="{{Vite::asset('resources/images/website-icon.png')}}" alt="AI Design Icon" class="mb-3">
-                    <h4 class="fw-bold">Brand </h4>
+                    <h4 class="fw-bold">{!! __('Brand') !!}</h4>
                     <p>{!! __('Consultation / Strategy / Design') !!}</p>
 
                 </div>
@@ -310,7 +310,7 @@
                 <div class="col-12 col-sm-6 col-lg-3 my-5">
                     <img src="{{Vite::asset('resources/images/website-icon.png')}}" alt="Construction Icon"
                          class="mb-3">
-                    <h4 class="fw-bold">Website</h4>
+                    <h4 class="fw-bold">{!! __('Website') !!}</h4>
                     <p>{!! __('Design') !!}</p>
                 </div>
             </div>
@@ -341,23 +341,22 @@
                     <ul class="slide-list-area">
                         <li data-title="{!! __('Website Design') !!}"
                             data-image="{{ Vite::asset('resources/images/website-design.jpg') }}"
-                            data-desc="We create visually stunning and highly functional website designs that not only reflect your brand’s unique identity but also provide an exceptional user experience, driving engagement, conversions, and customer loyalty effectively."
+                            data-desc="{!! __('We create visually stunning and highly functional website designs that not only reflect your brand’s unique identity but also provide an exceptional user experience, driving engagement, conversions, and customer loyalty effectively.') !!}"
                             class="">
                             {!! __('Website Design') !!}
                         </li>
                         <li data-title="{!! __('Interior Design') !!}"
                             data-image="{{ Vite::asset('resources/images/interior-design.jpg') }}"
-                            data-desc="We specialize in creating innovative and aesthetically pleasing interior designs that reflect your unique style, enhance functionality, and create harmonious spaces, ensuring comfort and a lasting impression while elevating your brand’s identity."
+                            data-desc="{!! __('We specialize in creating innovative and aesthetically pleasing interior designs that reflect your unique style, enhance functionality, and create harmonious spaces, ensuring comfort and a lasting impression while elevating your brand’s identity.') !!}"
                         >
                             {!! __('Interior Design') !!}
                         </li>
                         <li data-title="{!! __('Brand Design & Strategy') !!}"
                             data-image="{{ Vite::asset('resources/images/brand-design.jpg') }}"
-                            data-desc="We provide comprehensive brand design and strategy services, crafting unique visual identities that resonate with your audience, strengthen your brand’s presence, and drive long-term success through effective positioning and thoughtful design.">
+                            data-desc="{!! __('We provide comprehensive brand design and strategy services, crafting unique visual identities that resonate with your audience, strengthen your brand’s presence, and drive long-term success through effective positioning and thoughtful design.') !!}">
                             {!! __('Brand Design & Strategy') !!}
                         </li>
                     </ul>
-
 
                 </div>
             </div>
@@ -398,20 +397,22 @@
 
             <div class="col-lg-5 offset-lg-1">
                 <div class="contact-form">
-                    <form class="contact-form-area">
+                    <form action="{{ route('save-contact-form') }}" method="POST" class="contact-form-area">
+                        @method('POST')
+                        @csrf
                         <div class="row gap-4 mb-3">
                             <div class="col gap-4 text-start">
                                 <label class="form-label text-start">First Name</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input name="name" type="text" class="form-control" placeholder="">
                             </div>
                             <div class="col text-start">
                                 <label class="form-label">Last Name</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input name="last_name" type="text" class="form-control" placeholder="">
                             </div>
                         </div>
                         <div class="mb-5 text-start">
                             <label class="form-label text-start">Email</label>
-                            <input type="email" class="form-control" placeholder="">
+                            <input name="email" type="email" class="form-control" placeholder="">
                         </div>
                         <div class="message-container text-start mb-4">
                             <label for="messageInput">Message</label>

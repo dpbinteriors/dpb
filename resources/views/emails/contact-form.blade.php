@@ -1,9 +1,8 @@
 <x-mail::message>
-	
-	<h1>İletişim Formu Talebi</h1> <br>
-	<p>Name Surname : {{$request['name']}} </p> <br>
+
+	<h1>Contact Form Request</h1> <br>
+	<p>Name : {{$request['name']}} </p> <br>
+	<p>Surname : {{$request['last_name']}} </p> <br>
 	<p>Email : {{$request['email']}} </p> <br>
-	<p>Phone Number : {{$request['country_code']}} {{$request['phone_number']}} </p> <br>
 	<p>{{$request['message']}}</p> <br>
-	
 </x-mail::message>

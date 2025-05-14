@@ -88,7 +88,7 @@
                 <div class="col-lg-12">
                     <div class="bread-crumb-area-inner">
                         <div class="breadcrumb-top">
-                            <a href="#">Home </a> <span class="text-white px-2"> / </span>
+                            <a href="#">{!! __('Home') !!} </a> <span class="text-white px-2"> / </span>
                             <a class="active" href="#">{!! __('Careers') !!}</a>
                         </div>
                         <div class="bottom-title">
@@ -104,20 +104,20 @@
         <div class="container">
             <div class="row careers-description">
                 <div class="col-lg-12">
-                    <h2>Join Our Creative Team</h2>
+                    <h2>{!! __('Join Our Creative Team') !!}</h2>
                     <p>
-                        We are a forward-thinking architectural studio with a passion for transforming ideas into reality. Our mission is to create innovative and inspiring spaces that connect people, enhance functionality, and reflect beauty. We are always on the lookout for individuals who share our vision and have the drive to contribute to impactful projects.
+                        {!! __('We are a forward-thinking architectural studio with a passion for transforming ideas into reality. Our mission is to create innovative and inspiring spaces that connect people, enhance functionality, and reflect beauty. We are always on the lookout for individuals who share our vision and have the drive to contribute to impactful projects.') !!}
                     </p>
                     <p>
-                        If you're looking for a dynamic and collaborative environment where creativity and expertise are highly valued, you’ve come to the right place. We foster growth and offer ample opportunities for career advancement while working on exciting projects.
+                        {!! __("If you're looking for a dynamic and collaborative environment where creativity and expertise are highly valued, you’ve come to the right place. We foster growth and offer ample opportunities for career advancement while working on exciting projects.") !!}
                     </p>
                 </div>
 
             </div>
 
             <div class="no-open-positions">
-                <h3>No Open Positions at the Moment</h3>
-                <p>Currently, we do not have any open positions. However, we encourage you to check back in the future or send us your resume for consideration for upcoming opportunities.</p>
+                <h3>{!! __('No Open Positions at the Moment') !!}</h3>
+                <p>{!! __("Currently, we do not have any open positions. However, we encourage you to check back in the future or send us your resume for consideration for upcoming opportunities.") !!}</p>
             </div>
         </div>
     </div>

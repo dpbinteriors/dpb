@@ -30,7 +30,7 @@ class ContactFormSubmitted extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Tasinotomotiv.com İletişim Formu Talebi',
+            subject: 'dPb.com Contact Form Request',
         );
     }
 

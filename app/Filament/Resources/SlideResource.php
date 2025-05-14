@@ -43,14 +43,49 @@ class SlideResource extends Resource
                 Section::make(__("panel.general_settings"))
                     ->schema([
 
+                        Forms\Components\Select::make('media_type_select')
+                            ->label('Medya Türü Seçin')
+                            ->options([
+                                'video' => 'Video',
+                                'image' => 'Görsel',
+                            ])
+                            ->reactive()
+                            ->required()
+                            ->dehydrated(false) // veritabanına yazılmaz
+                            ->default(fn ($get, $record) => $record?->video ? 'video' : 'image') // ilk yüklemede ayarla
+                            ->afterStateHydrated(function ($state, callable $set, $get, $record) {
+                                // Form yüklendiğinde değer boşsa tahmin et
+                                if (! $state && $record) {
+                                    $set('media_type_select', $record->video ? 'video' : 'image');
+                                }
+                            })
+                            ->afterStateUpdated(function ($state, callable $set) {
+                                // Seçim değiştiğinde diğer dosyaları sıfırla
+                                $set('video', null);
+                                $set('second_image', null);
+                            })
+                            ->columnSpan(12),
+
+
                         FileUpload::make('video')
-                            ->label(__('panel.main_video') . ' (Önerilen boyut: 1920x430)')
+                            ->label('Video (Önerilen: 1920x430)')
                             ->directory('home_slides')
                             ->visibility('public')
-                            ->required()
-                            ->columnSpan(12)
-                            ->acceptedFileTypes(['video/mp4', 'video/webm']) // sadece video türleri kabul edilir
-                            ->maxSize(102400), // Maksimum dosya boyutu (KB cinsinden), örnek: 100 MB
+                            ->acceptedFileTypes(['video/mp4', 'video/webm'])
+                            ->maxSize(102400) // 100 MB
+                            ->required(fn ($get) => $get('media_type_select') === 'video')
+                            ->visible(fn ($get) => $get('media_type_select') === 'video')
+                            ->columnSpan(12),
+
+                        FileUpload::make('second_image')
+                            ->label('Görsel (Önerilen: 1920x430)')
+                            ->directory('home_slides')
+                            ->visibility('public')
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+                            ->maxSize(10240) // 10 MB
+                            ->required(fn ($get) => $get('media_type_select') === 'image')
+                            ->visible(fn ($get) => $get('media_type_select') === 'image')
+                            ->columnSpan(12),
 
 
 

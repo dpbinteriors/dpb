@@ -56,10 +56,71 @@
         .max-w-15 {
             max-width: 15%;
         }
+        .main-slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slider-item {
+            flex: 0 0 100%;
+            position: relative;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .slider-prev, .slider-next {
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+
+        .slider-dot.active {
+            background-color: white;
+        }
 
         @media (max-width: 992px) {
             .max-w-15 {
                 max-width: 100%;
+            }
+
+            .main-slider-container img,video{
+                height: 100vh;
+                object-fit: cover;
             }
         }
     </style>
@@ -67,28 +128,50 @@
 
 @section('content')
 
-    <div class="slider-container">
-        <div class="w-100 h-100">
-            <video class="w-100" autoplay playsinline loop muted>
-                <source class="w-100 h-100" src="{{ asset('storage/' . $slide->video) }}" type="video/mp4">
-            </video>
+    <!-- Slider Container -->
+    <div class="main-slider-container">
+        <div class="slider-wrapper">
+            @foreach($slides as $slide)
+                <div class="slider-item">
+                    @if($slide->video)
+                        <div class="w-100 h-100">
+                            <video class="w-100" autoplay playsinline loop muted>
+                                <source class="w-100 h-100" src="{{ asset('storage/' . $slide->video) }}" type="video/mp4">
+                            </video>
+                        </div>
+                    @elseif($slide->second_image)
+                        <div class="w-100 h-100">
+                            <img class="w-100 h-100" src="{{ asset('storage/' . $slide->second_image) }}" alt="{{ $slide->title }}">
+                        </div>
+                    @endif
+
+                    <div class="banner-info-area position-absolute">
+                        <!-- Orange Box -->
+                        <div class="orange-box">
+                            <p>{{$slide->type}}</p>
+                        </div>
+
+                        <!-- Green Box -->
+                        <div class="green-box d-flex flex-wrap justify-content-between align-items-center">
+                            <h2 class="m-0">{{$slide->title}}<p class="m-0">{{$slide->slogan}}</p></h2>
+                            <h4 class="pe-3 max-w-15">{{$slide->description}}</h4>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
 
-
-        <div class="banner-info-area position-absolute">
-            <!-- Turuncu Kutu -->
-            <div class="orange-box   ">
-                <p>{{$slide->type}}</p>
+        <!-- Navigation Controls -->
+        <div class="slider-nav">
+            <button class="slider-prev">&lt;</button>
+            <div class="slider-dots">
+                @foreach($slides as $index => $slide)
+                    <span class="slider-dot {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}"></span>
+                @endforeach
             </div>
-
-            <!-- Yeşil Kutu -->
-            <div class="green-box d-flex flex-wrap justify-content-between align-items-center">
-                <h2 class="m-0">{{$slide->title}}<p class="m-0">{{$slide->slogan}}</p></h2>
-                <h4 class="pe-3 max-w-15">{{$slide->description}}</h4>
-            </div>
+            <button class="slider-next">&gt;</button>
         </div>
     </div>
-
 
 
     <div class="packs">
@@ -214,20 +297,22 @@
 
             <div class="col-lg-5 offset-lg-1">
                 <div class="contact-form">
-                    <form class="contact-form-area">
+                    <form action="{{ route('save-contact-form') }}" method="POST" class="contact-form-area">
+                        @method('POST')
+                        @csrf
                         <div class="row gap-4 mb-3">
                             <div class="col gap-4 text-start">
                                 <label class="form-label text-start">First Name</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input name="name" type="text" class="form-control" placeholder="">
                             </div>
                             <div class="col text-start">
                                 <label class="form-label">Last Name</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input name="last_name" type="text" class="form-control" placeholder="">
                             </div>
                         </div>
                         <div class="mb-5 text-start">
                             <label class="form-label text-start">Email</label>
-                            <input type="email" class="form-control" placeholder="">
+                            <input name="email" type="email" class="form-control" placeholder="">
                         </div>
                         <div class="message-container text-start mb-4">
                             <label for="messageInput">Message</label>
@@ -249,5 +334,67 @@
 @endsection
 
 @section('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliderWrapper = document.querySelector('.slider-wrapper');
+            const sliderItems = document.querySelectorAll('.slider-item');
+            const prevBtn = document.querySelector('.slider-prev');
+            const nextBtn = document.querySelector('.slider-next');
+            const dots = document.querySelectorAll('.slider-dot');
 
+            let currentIndex = 0;
+            const totalSlides = sliderItems.length;
+
+            // Initialize
+            updateSlider();
+
+            // Previous slide
+            prevBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateSlider();
+            });
+
+            // Next slide
+            nextBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlider();
+            });
+
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    currentIndex = index;
+                    updateSlider();
+                });
+            });
+
+            // Auto play - optional
+            let slideInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlider();
+            }, 15000); // Change slide every 5 seconds
+
+            // Pause on hover - optional
+            sliderWrapper.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+
+            sliderWrapper.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    updateSlider();
+                }, 15000);
+            });
+
+            // Update slider position and active states
+            function updateSlider() {
+                sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                // Update active dot
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+        });
+    </script>
 @endsection

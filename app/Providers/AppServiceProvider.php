@@ -121,6 +121,10 @@ class AppServiceProvider extends ServiceProvider
                 $featuredAddress = Address::first();
                 $view->with('featuredAddress', $featuredAddress);
             }
+            if (Schema::hasTable('addresses')) {
+                $addresses = Address::all();
+                $view->with('addresses', $addresses);
+            }
         });
 
 
